@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Use Material Components Theme -->
+    <style name="Theme.Flickview" parent="Theme.MaterialComponents.Light.NoActionBar" />
+
+</resources>

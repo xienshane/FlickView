@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Flickview</string>
+
+    <string name="error_unknown">İsteğinizi şuanda gerçekleştiremiyoruz.\nLütfen daha sonra tekrar deneyin!</string>
+    <string name="error_connection_not_found">Lütfen bağlantı ayarlarınızı kontrol edin ve tekrar deneyin.</string>
+    <string name="error_connection_timeout">Bağlantı zaman aşımına uğradı!</string>
+    <string name="search_view_hint">Search Movie</string>
+    <string name="no_search_result">No search results.</string>
+    <string name="underlined_text"><u>Underlined Text</u></string>
+    <string name="transition_from_home_to_search" translatable="false">transitionFromHomeToSearch</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+    <string name="home">Home</string>
+    <string name="browse">Browse</string>
+    <string name="notification">Notification</string>
+    <string name="profile">Profile</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="notifications">Notifications</string>
+    <string name="upcoming_movies">Upcoming Movies</string>
+    <string name="category">Category</string>
+    <string name="title">Title</string>
+    <string name="search_movies">Search Movies...</string>
+    <string name="best_movies">Best Movies</string>
+</resources>
