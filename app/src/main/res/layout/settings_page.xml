@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#451961">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                   <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:backgroundTint="#3D2955"
+                            android:id="@+id/button_back1"
+                            android:layout_width="24dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/baseline_arrow_back_ios_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="4dp"
+                            android:text="Settings"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="22sp" />
+
+
+                    </LinearLayout>
+
+                    <FrameLayout
+
+                        android:layout_width="390dp"
+                        android:layout_height="180dp"
+                        android:background="@drawable/round_back"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="2dp"
+                        android:elevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginTop="17dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/icon_circle"
+                                android:src="@drawable/language_svgrepo_com__1_" />
+
+                            <Button
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="App Language"
+                                android:background="@null"
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@drawable/icon_circle_two"
+                                android:src="@drawable/world_svgrepo_com" />
+
+                            <Button
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_horizontal"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Region Prefences"
+                                android:background="@null"
+
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="19dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="120dp">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="6dp"
+                                android:src="@drawable/subtitles_svgrepo_com"
+                                android:background="@drawable/icon_circle_three"/>
+
+                            <Button
+                                android:layout_width="286dp"
+                                android:layout_height="50dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Subtitle Prefences"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="19dp"
+                                android:src="@drawable/right" />
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="390dp"
+                        android:layout_height="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#8174A0"
+                        android:padding="2dp" />
+
+
+                    <FrameLayout
+
+                        android:layout_width="390dp"
+                        android:layout_height="180dp"
+                        android:background="@drawable/round_back"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="2dp"
+                        android:elevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginTop="17dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/icon_circle"
+                                android:src="@drawable/display_svgrepo_com" />
+
+                            <Button
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Display"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@drawable/icon_circle_two"
+                                android:src="@drawable/notifications_alert_svgrepo_com__1_" />
+
+                            <Button
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_horizontal"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Notifications"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="19dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="120dp">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="6dp"
+                                android:src="@drawable/favorites_svgrepo_com"
+                                android:background="@drawable/icon_circle_three"/>
+
+                            <Button
+                                android:layout_width="286dp"
+                                android:layout_height="50dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Favorites"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="19dp"
+                                android:src="@drawable/right" />
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="390dp"
+                        android:layout_height="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#8174A0"
+                        android:padding="2dp" />
+
+
+                    <FrameLayout
+
+                        android:layout_width="390dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/round_back"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="2dp"
+                        android:elevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginTop="17dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/icon_circle"
+                                android:src="@drawable/downloads_svgrepo_com" />
+
+                            <Button
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Clear Downloads"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="60dp">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="6dp"
+                                android:src="@drawable/clear_circle_svgrepo_com"
+                                android:background="@drawable/icon_circle_three"/>
+
+                            <Button
+                                android:layout_width="286dp"
+                                android:layout_height="50dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/white"
+                                android:text="Clear Cache"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="19dp"
+                                android:src="@drawable/right" />
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="390dp"
+                        android:layout_height="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#8174A0"
+                        android:padding="2dp" />
+
+
+                    <FrameLayout
+
+                        android:layout_width="390dp"
+                        android:layout_height="220dp"
+                        android:background="@drawable/round_back"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="2dp"
+                        android:elevation="4dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginTop="17dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/icon_circle"
+                                android:src="@drawable/developer_centerpublic_api_svgrepo_com" />
+
+                            <Button
+                                android:id="@+id/button_developer"
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Developer Page"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="60dp">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@drawable/icon_circle_two"
+                                android:src="@drawable/privacy_tips_svgrepo_com__2_" />
+
+                            <Button
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_horizontal"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Privacy Policy"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="19dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="110dp">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="36dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="6dp"
+                                android:src="@drawable/copyright_svgrepo_com"
+                                android:background="@drawable/icon_circle_three"/>
+
+                            <Button
+                                android:layout_width="286dp"
+                                android:layout_height="50dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Copyright Information"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="19dp"
+                                android:src="@drawable/right" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="150dp">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="34dp"
+                                android:layout_marginTop="17dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/icon_circle"
+                                android:src="@drawable/rate_rating_survey_22_svgrepo_com" />
+
+                            <Button
+                                android:layout_width="287dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="#00FFFFFF"
+                                android:textColor="@color/white"
+                                android:fontFamily="sans-serif-smallcaps"
+                                android:gravity="left|center_vertical"
+                                android:text="Rate Us"
+                                android:textStyle="bold"
+                                android:background="@null"
+
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/right" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:background="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"/>
+</LinearLayout>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#451961">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <ImageButton
+                        android:id="@+id/button_back"
+                        android:backgroundTint="#3D2955"
+                        android:layout_width="34dp"
+                        android:layout_height="27dp"
+                        android:src="@drawable/baseline_arrow_back_ios_24"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop = "3dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Profile"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginTop = "5dp"/>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="142dp"
+                    android:layout_height="175dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/user" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Movie Watchers 2025"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="moviewatchers"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="70dp"
+                        android:backgroundTint="#3A7DD0"
+                        android:layout_marginTop="5dp"
+                        android:text="Edit Profile"
+                        android:textColor="@color/white"
+                        />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="#3A7DD0"
+                        android:layout_marginTop="5dp"
+                        android:text="Watch History"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <View
+                            android:layout_width="119dp"
+                            android:layout_height="128dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#4D020202" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Related Movies"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="2dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="40"
+                            android:layout_marginTop="5dp"
+                            android:textSize="60sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_gravity="center" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="119dp"
+                            android:layout_height="128dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#4D020202" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Liked Movies"
+                            android:textSize="13sp"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/white"
+                            android:layout_marginLeft="20dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textSize="60sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="29sp"
+                            android:layout_marginLeft="25sp"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <View
+                            android:layout_width="119dp"
+                            android:layout_height="128dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#4D000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Average Ratings"
+                            android:textSize="13sp"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/white"
+                            android:layout_marginLeft="12sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.5"
+                            android:textSize="60sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="29sp"
+                            android:layout_marginLeft="18sp"/>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="285dp"
+                    android:orientation="vertical" >
+
+                    <FrameLayout
+                        android:layout_width="390dp"
+                        android:layout_height="5dp"
+                        android:background="#514477"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp">
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="390dp"
+                        android:layout_height="50dp"
+                        android:background="#3A7DD0"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="10dp">
+
+                        <Button
+                            android:layout_width="229dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif"
+                            android:text="Activity Center"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#3A7DD0"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="390dp"
+                        android:layout_height="50dp"
+                        android:background="#3A7DD0"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp">
+
+                        <Button
+                            android:layout_width="231dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif"
+                            android:text="Display"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#3A7DD0"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="390dp"
+                        android:layout_height="50dp"
+                        android:background="#3A7DD0"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp">
+
+                        <Button
+                            android:id="@+id/button_settings"
+                            android:layout_width="236dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif"
+                            android:text="Settings"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#3A7DD0"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="390dp"
+                        android:layout_height="50dp"
+                        android:background="#E63946"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp">
+
+                        <Button
+                            android:id="@+id/button_logout"
+                            android:layout_width="244dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif"
+                            android:text="Log Out"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#E63946"/>
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+

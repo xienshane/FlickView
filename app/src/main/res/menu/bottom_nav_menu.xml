@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:icon="@drawable/home_icon_silhouette_svgrepo_com"
+        android:id="@+id/home"/>
+    <item android:title="Browse"
+        android:icon="@drawable/baseline_add_to_queue_24"
+        android:id="@+id/browse"/>
+    <item android:title="Notification"
+        android:icon="@drawable/notifications_svgrepo_com"
+        android:id="@+id/notifications"/>
+    <item android:title="Profile"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:id="@+id/profile"/>
+</menu>

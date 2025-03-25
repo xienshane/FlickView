@@ -44,6 +44,22 @@
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
+        <activity android:name=".Activities.DeveloperPageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".Activities.EditProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".Activities.ProfilePageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".Activities.SettingsPageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
     </application>
 
 </manifest>

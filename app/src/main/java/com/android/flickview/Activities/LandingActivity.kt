@@ -1,6 +1,7 @@
 package com.android.flickview.Activities
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -23,6 +24,7 @@ import com.android.flickview.Domains.ListFilm
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -175,5 +177,17 @@ class LandingActivity : Activity() {
         loading1 = findViewById(R.id.progressBar1)
         loading2 = findViewById(R.id.progressBar2)
         loading3 = findViewById(R.id.progressBar3)
+
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView3)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            if (item.itemId == R.id.profile) {
+                val intent = Intent(this@LandingActivity, ProfilePageActivity::class.java)
+                startActivity(intent)
+                return@setOnItemSelectedListener true
+            }
+            false
+        }
+
+
     }
 }
