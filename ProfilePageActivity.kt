@@ -72,7 +72,7 @@ class ProfilePageActivity : Activity() {
 
         buttonLogoutConfirm.setOnClickListener {
             Toast.makeText(this, "Logging out...", Toast.LENGTH_LONG).show()
-            dialog.dismiss()
+            dialog.setContentView(R.layout.login)
         }
 
         buttonCancel.setOnClickListener {
