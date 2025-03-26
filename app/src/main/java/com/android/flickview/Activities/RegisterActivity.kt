@@ -26,8 +26,8 @@ class RegisterActivity : Activity() {
         val editor = sharedPreferences.edit()
 
         createAccBtn.setOnClickListener {
-            val email = emailEditText.text.toString()
-            val username = usernameEditText.text.toString()
+            val email = emailEditText.text.toString().trim()
+            val username = usernameEditText.text.toString().trim()
             val password = passwordEditText.text.toString()
             val confirmPassword = confirmPasswordEditText.text.toString()
 
@@ -35,10 +35,12 @@ class RegisterActivity : Activity() {
                 Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show()
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(this, "Please enter a valid email address.", Toast.LENGTH_SHORT).show()
+            } else if (username.length < 3 || username.length > 15) {
+                Toast.makeText(this, "Username must be 3-15 characters long.", Toast.LENGTH_SHORT).show()
+            } else if (password.length < 6 || password.length > 20) {
+                Toast.makeText(this, "Password must be 6-20 characters long.", Toast.LENGTH_SHORT).show()
             } else if (password != confirmPassword) {
                 Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show()
-            } else if (password.length < 6) {
-                Toast.makeText(this, "Password must be at least 6 characters long.", Toast.LENGTH_SHORT).show()
             } else {
                 // Save user credentials to SharedPreferences
                 editor.putString("username", username)

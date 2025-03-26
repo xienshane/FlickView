@@ -18,7 +18,6 @@ class LoginActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
 
         val registerBtn = findViewById<Button>(R.id.signinButton)
@@ -32,7 +31,7 @@ class LoginActivity : Activity() {
             val usernameEditText = findViewById<EditText>(R.id.username)
             val passwordEditText = findViewById<EditText>(R.id.password)
 
-            val username = usernameEditText.text.toString()
+            val username = usernameEditText.text.toString().trim()
             val password = passwordEditText.text.toString()
 
             val savedUsername = sharedPreferences.getString("username", null)
@@ -40,6 +39,10 @@ class LoginActivity : Activity() {
 
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill in both fields", Toast.LENGTH_SHORT).show()
+            } else if (username.length < 3 || username.length > 15) {
+                Toast.makeText(this, "Username must be 3-15 characters long.", Toast.LENGTH_SHORT).show()
+            } else if (password.length < 6 || password.length > 20) {
+                Toast.makeText(this, "Password must be 6-20 characters long.", Toast.LENGTH_SHORT).show()
             } else {
                 if (username == savedUsername && password == savedPassword) {
                     val intent = Intent(this, LandingActivity::class.java)
@@ -53,7 +56,6 @@ class LoginActivity : Activity() {
 
         val forgotPasswordText = findViewById<TextView>(R.id.forgotPassword)
         forgotPasswordText.setOnClickListener {
-            // Show a message or navigate to a password recovery screen
             Toast.makeText(this, "Forgot Password clicked", Toast.LENGTH_SHORT).show()
         }
     }
