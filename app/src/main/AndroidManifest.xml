@@ -60,6 +60,14 @@
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
+        <activity android:name=".Activities.BrowseActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".Activities.NotificationsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
     </application>
 
 </manifest>

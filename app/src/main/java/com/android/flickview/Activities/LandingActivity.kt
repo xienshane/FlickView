@@ -57,7 +57,7 @@ class LandingActivity : Activity() {
     private fun sendRequestBestMovies() {
         mRequestQueue = Volley.newRequestQueue(this)
         loading1.visibility = View.VISIBLE
-        val url = "https://moviesapi.ir/api/v1/movies?page=4"
+        val url = "https://moviesapi.ir/api/v1/movies?page=1"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -79,7 +79,7 @@ class LandingActivity : Activity() {
     private fun sendRequestUpcoming() {
         mRequestQueue = Volley.newRequestQueue(this)
         loading3.visibility = View.VISIBLE
-        val url = "https://moviesapi.ir/api/v1/movies?page=6"
+        val url = "https://moviesapi.ir/api/v1/movies?page=2"
 
         val stringRequest3 = StringRequest(
             Request.Method.GET, url,
