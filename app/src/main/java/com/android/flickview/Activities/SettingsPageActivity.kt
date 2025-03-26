@@ -16,6 +16,15 @@ class SettingsPageActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_page)
 
+        val buttonAppLang: Button = findViewById(R.id.button_app)
+        buttonAppLang.setOnClickListener {
+            Log.e("Developer", "Button is clicked")
+            Toast.makeText(this, "App Language page is clicked", Toast.LENGTH_LONG).show()
+
+            val intent = Intent(this, AppLanguageListViewActivity::class.java)
+            startActivity(intent)
+        }
+
         val buttonDeveloper: Button = findViewById(R.id.button_developer)
         buttonDeveloper.setOnClickListener {
             Log.e("Developer", "Button is clicked")

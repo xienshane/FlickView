@@ -3,6 +3,7 @@ package com.android.flickview.Activities
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -45,7 +46,7 @@ class ProfilePageActivity : Activity() {
 
         val buttonEditProf: Button = findViewById(R.id.button_edit)
         buttonEditProf.setOnClickListener {
-            showCustomDialogBox2("Are you sure you want to change your details?")
+            showCustomDialogBox2()
         }
     }
 
@@ -57,8 +58,6 @@ class ProfilePageActivity : Activity() {
 
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
-        dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         dialog.window?.setGravity(android.view.Gravity.CENTER)
 
         val textMessage: TextView = dialog.findViewById(R.id.button_message)
@@ -68,8 +67,18 @@ class ProfilePageActivity : Activity() {
         textMessage.text = message
 
         buttonLogoutConfirm.setOnClickListener {
-            Toast.makeText(this, "Logging out...", Toast.LENGTH_LONG).show()
+           
+            clearUserSession()
+
+            Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
+
+            // Navigate to Login Activity
+            val intent = Intent(this, LoginActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            startActivity(intent)
+            finish()
         }
 
         buttonCancel.setOnClickListener {
@@ -79,15 +88,21 @@ class ProfilePageActivity : Activity() {
         dialog.show()
     }
 
-    private fun showCustomDialogBox2(message: String) {
+    private fun clearUserSession() {
+
+        val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        sharedPref.edit().clear().apply()
+
+
+    }
+
+    private fun showCustomDialogBox2() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.edit_profile_page)
 
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
         dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         dialog.window?.setGravity(android.view.Gravity.CENTER)
 

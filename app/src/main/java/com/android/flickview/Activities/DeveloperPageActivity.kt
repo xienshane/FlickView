@@ -1,12 +1,12 @@
 package com.android.flickview.Activities
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.os.Bundle
 import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 import com.android.flickview.R
 
-class DeveloperPageActivity : Activity() {
+class DeveloperPageActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

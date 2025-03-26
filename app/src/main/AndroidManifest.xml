@@ -60,7 +60,7 @@
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.BrowseActivity"
+        <activity android:name=".Activities.AppLanguageListViewActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 

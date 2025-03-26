@@ -73,6 +73,7 @@
                                 android:src="@drawable/language_svgrepo_com__1_" />
 
                             <Button
+                                android:id="@+id/button_app"
                                 android:layout_width="247dp"
                                 android:layout_height="50dp"
                                 android:layout_marginLeft="10dp"
