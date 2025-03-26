@@ -41,12 +41,12 @@
 
         <EditText
             android:id="@+id/et_name"
-            android:layout_width="266dp"
+            android:layout_width="244dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,14 +63,15 @@
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
+
         <EditText
             android:id="@+id/et_password"
-            android:layout_width="266dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -84,33 +85,33 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_cancel"
-            android:layout_width="0dp"
+            android:layout_width="111dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:text="CANCEL"
-            android:textSize="15sp"
-            android:textColor="#EAD9DE"
             android:backgroundTint="#FF6E40"
-            android:padding="12dp"
             android:fontFamily="sans-serif-black"
-            app:strokeWidth="1dp"
+            android:padding="12dp"
+            android:text="CANCEL"
+            android:textColor="#EAD9DE"
+            android:textSize="15sp"
             app:strokeColor="#FF5252"
-            android:layout_marginEnd="10dp"/>
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_save"
-            android:layout_width="0dp"
+            android:layout_width="118dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:text="SAVE"
-            android:textSize="15sp"
-            android:textColor="#EAD9DE"
             android:backgroundTint="#FF5252"
-            android:padding="12dp"
             android:fontFamily="sans-serif-black"
-            app:strokeWidth="1dp"
+            android:padding="12dp"
+            android:text="SAVE"
+            android:textColor="#EAD9DE"
+            android:textSize="15sp"
             app:strokeColor="#FF6E40"
-            android:layout_marginEnd="10dp"/>
+            app:strokeWidth="1dp" />
 
     </LinearLayout>
 </LinearLayout>

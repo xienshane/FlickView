@@ -75,23 +75,22 @@
 
                     <Button
                         android:id="@+id/button_edit"
-                        android:layout_width="wrap_content"
+                        android:layout_width="155dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="70dp"
-                        android:backgroundTint="#3A7DD0"
+                        android:layout_marginLeft="50dp"
                         android:layout_marginTop="5dp"
+                        android:backgroundTint="#3A7DD0"
                         android:text="Edit Profile"
-                        android:textColor="@color/white"
-                        />
+                        android:textColor="@color/white" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:backgroundTint="#3A7DD0"
                         android:layout_marginTop="5dp"
+                        android:backgroundTint="#3A7DD0"
                         android:text="Watch History"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,8 +103,8 @@
                         android:layout_height="wrap_content" >
 
                         <View
-                            android:layout_width="119dp"
-                            android:layout_height="128dp"
+                            android:layout_width="108dp"
+                            android:layout_height="112dp"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="10dp"
                             android:background="#4D020202" />
@@ -123,11 +122,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
                             android:text="40"
-                            android:layout_marginTop="5dp"
-                            android:textSize="60sp"
                             android:textColor="#FFFFFF"
-                            android:layout_gravity="center" />
+                            android:textSize="50sp" />
 
                     </FrameLayout>
 
@@ -136,8 +135,8 @@
                         android:layout_height="wrap_content">
 
                         <View
-                            android:layout_width="119dp"
-                            android:layout_height="128dp"
+                            android:layout_width="98dp"
+                            android:layout_height="112dp"
                             android:layout_marginRight="10dp"
                             android:background="#4D020202" />
 
@@ -153,11 +152,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="20sp"
+                            android:layout_marginTop="39sp"
                             android:text="12"
-                            android:textSize="60sp"
                             android:textColor="@color/white"
-                            android:layout_marginTop="29sp"
-                            android:layout_marginLeft="25sp"/>
+                            android:textSize="50sp" />
 
                     </FrameLayout>
 
@@ -166,28 +165,29 @@
                         android:layout_height="wrap_content" >
 
                         <View
-                            android:layout_width="119dp"
-                            android:layout_height="128dp"
+                            android:layout_width="101dp"
+                            android:layout_height="114dp"
                             android:layout_marginRight="10dp"
                             android:background="#4D000000" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="75dp"
                             android:layout_height="wrap_content"
-                            android:text="Average Ratings"
-                            android:textSize="13sp"
+                            android:layout_marginLeft="12sp"
                             android:layout_marginTop="12dp"
+                            android:text="Average Ratings"
+                            android:gravity="center"
                             android:textColor="@color/white"
-                            android:layout_marginLeft="12sp"/>
+                            android:textSize="13sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="15sp"
+                            android:layout_marginTop="39sp"
                             android:text="4.5"
-                            android:textSize="60sp"
                             android:textColor="@color/white"
-                            android:layout_marginTop="29sp"
-                            android:layout_marginLeft="18sp"/>
+                            android:textSize="50sp" />
 
                     </FrameLayout>
 
@@ -208,84 +208,84 @@
                     </FrameLayout>
 
                     <FrameLayout
-                        android:layout_width="390dp"
+                        android:layout_width="333dp"
                         android:layout_height="50dp"
-                        android:background="#3A7DD0"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginLeft="10dp">
+                        android:background="#3A7DD0">
 
                         <Button
                             android:layout_width="229dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:backgroundTint="#3A7DD0"
                             android:fontFamily="sans-serif"
                             android:text="Activity Center"
                             android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:backgroundTint="#3A7DD0"/>
+                            android:textStyle="bold" />
 
                     </FrameLayout>
 
                     <FrameLayout
-                        android:layout_width="390dp"
+                        android:layout_width="332dp"
                         android:layout_height="50dp"
-                        android:background="#3A7DD0"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp">
+                        android:background="#3A7DD0">
 
                         <Button
                             android:layout_width="231dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:backgroundTint="#3A7DD0"
                             android:fontFamily="sans-serif"
                             android:text="Display"
                             android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:backgroundTint="#3A7DD0"/>
+                            android:textStyle="bold" />
 
                     </FrameLayout>
 
                     <FrameLayout
-                        android:layout_width="390dp"
+                        android:layout_width="333dp"
                         android:layout_height="50dp"
-                        android:background="#3A7DD0"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp">
+                        android:background="#3A7DD0">
 
                         <Button
                             android:id="@+id/button_settings"
                             android:layout_width="236dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:backgroundTint="#3A7DD0"
                             android:fontFamily="sans-serif"
                             android:text="Settings"
                             android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:backgroundTint="#3A7DD0"/>
+                            android:textStyle="bold" />
 
                     </FrameLayout>
 
                     <FrameLayout
-                        android:layout_width="390dp"
+                        android:layout_width="334dp"
                         android:layout_height="50dp"
-                        android:background="#E63946"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp">
+                        android:background="#E63946">
 
                         <Button
                             android:id="@+id/button_logout"
                             android:layout_width="244dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:backgroundTint="#E63946"
                             android:fontFamily="sans-serif"
                             android:text="Log Out"
                             android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:backgroundTint="#E63946"/>
+                            android:textStyle="bold" />
                     </FrameLayout>
 
                 </LinearLayout>

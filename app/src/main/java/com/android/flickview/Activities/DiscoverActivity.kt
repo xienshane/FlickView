@@ -11,6 +11,9 @@ import com.android.flickview.R
 class DiscoverActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Thread.sleep(1500)
+
         setContentView(R.layout.discover)
 
         val registerBtn = findViewById<Button>(R.id.getStartedBtn)

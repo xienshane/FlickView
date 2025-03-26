@@ -9,6 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         android:layout_weight="1"
         android:background="#451961">
 
@@ -50,7 +51,7 @@
 
                     <FrameLayout
 
-                        android:layout_width="390dp"
+                        android:layout_width="335dp"
                         android:layout_height="180dp"
                         android:background="@drawable/round_back"
                         android:layout_marginTop="10dp"
@@ -72,23 +73,24 @@
                                 android:src="@drawable/language_svgrepo_com__1_" />
 
                             <Button
-                                android:layout_width="287dp"
+                                android:layout_width="247dp"
                                 android:layout_height="50dp"
+                                android:layout_marginLeft="10dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="App Language"
-                                android:background="@null"
-                                android:textStyle="bold"
-                                android:textSize="15sp" />
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="30dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>
@@ -103,29 +105,30 @@
                                 android:layout_width="35dp"
                                 android:layout_height="34dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="8dp"
                                 android:background="@drawable/icon_circle_two"
                                 android:src="@drawable/world_svgrepo_com" />
 
                             <Button
-                                android:layout_width="287dp"
+                                android:layout_width="248dp"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_horizontal"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Region Prefences"
-                                android:background="@null"
+                                android:textColor="@color/white"
 
-                                android:textStyle="bold"
-                                android:textSize="15sp" />
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>
@@ -140,28 +143,29 @@
                                 android:layout_width="35dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="6dp"
                                 android:src="@drawable/subtitles_svgrepo_com"
                                 android:background="@drawable/icon_circle_three"/>
 
                             <Button
-                                android:layout_width="286dp"
+                                android:layout_width="248dp"
                                 android:layout_height="50dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Subtitle Prefences"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
                         </LinearLayout>
 
@@ -169,7 +173,7 @@
                     </FrameLayout>
 
                     <View
-                        android:layout_width="390dp"
+                        android:layout_width="335dp"
                         android:layout_height="3dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
@@ -179,7 +183,7 @@
 
                     <FrameLayout
 
-                        android:layout_width="390dp"
+                        android:layout_width="335dp"
                         android:layout_height="180dp"
                         android:background="@drawable/round_back"
                         android:layout_marginTop="10dp"
@@ -195,30 +199,31 @@
                             <ImageView
                                 android:layout_width="35dp"
                                 android:layout_height="34dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="17dp"
                                 android:layout_marginLeft="10dp"
                                 android:background="@drawable/icon_circle"
                                 android:src="@drawable/display_svgrepo_com" />
 
                             <Button
-                                android:layout_width="287dp"
+                                android:layout_width="248dp"
                                 android:layout_height="50dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Display"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="30dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>
@@ -233,29 +238,30 @@
                                 android:layout_width="35dp"
                                 android:layout_height="34dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="8dp"
                                 android:background="@drawable/icon_circle_two"
                                 android:src="@drawable/notifications_alert_svgrepo_com__1_" />
 
                             <Button
-                                android:layout_width="287dp"
+                                android:layout_width="250dp"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_horizontal"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Notifications"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="22dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>
@@ -269,29 +275,30 @@
                             <ImageView
                                 android:layout_width="35dp"
                                 android:layout_height="36dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="6dp"
                                 android:src="@drawable/favorites_svgrepo_com"
                                 android:background="@drawable/icon_circle_three"/>
 
                             <Button
-                                android:layout_width="286dp"
+                                android:layout_width="248dp"
                                 android:layout_height="50dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Favorites"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
                         </LinearLayout>
 
@@ -299,7 +306,7 @@
                     </FrameLayout>
 
                     <View
-                        android:layout_width="390dp"
+                        android:layout_width="335dp"
                         android:layout_height="3dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
@@ -309,7 +316,7 @@
 
                     <FrameLayout
 
-                        android:layout_width="390dp"
+                        android:layout_width="335dp"
                         android:layout_height="120dp"
                         android:background="@drawable/round_back"
                         android:layout_marginTop="10dp"
@@ -326,29 +333,30 @@
                                 android:layout_width="35dp"
                                 android:layout_height="34dp"
                                 android:layout_marginTop="17dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginLeft="10dp"
                                 android:background="@drawable/icon_circle"
                                 android:src="@drawable/downloads_svgrepo_com" />
 
                             <Button
-                                android:layout_width="287dp"
+                                android:layout_width="249dp"
                                 android:layout_height="50dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Clear Downloads"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="30dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>
@@ -365,28 +373,29 @@
                                 android:layout_width="35dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="6dp"
                                 android:src="@drawable/clear_circle_svgrepo_com"
                                 android:background="@drawable/icon_circle_three"/>
 
                             <Button
-                                android:layout_width="286dp"
+                                android:layout_width="250dp"
                                 android:layout_height="50dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
-                                android:textColor="@color/white"
                                 android:text="Clear Cache"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
                         </LinearLayout>
 
@@ -394,7 +403,7 @@
                     </FrameLayout>
 
                     <View
-                        android:layout_width="390dp"
+                        android:layout_width="335dp"
                         android:layout_height="3dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
@@ -404,7 +413,7 @@
 
                     <FrameLayout
 
-                        android:layout_width="390dp"
+                        android:layout_width="335dp"
                         android:layout_height="220dp"
                         android:background="@drawable/round_back"
                         android:layout_marginTop="10dp"
@@ -422,30 +431,31 @@
                                 android:layout_width="35dp"
                                 android:layout_height="34dp"
                                 android:layout_marginTop="17dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginLeft="10dp"
                                 android:background="@drawable/icon_circle"
                                 android:src="@drawable/developer_centerpublic_api_svgrepo_com" />
 
                             <Button
                                 android:id="@+id/button_developer"
-                                android:layout_width="287dp"
+                                android:layout_width="250dp"
                                 android:layout_height="50dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Developer Page"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="30dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>
@@ -460,29 +470,30 @@
                                 android:layout_width="35dp"
                                 android:layout_height="34dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="8dp"
                                 android:background="@drawable/icon_circle_two"
                                 android:src="@drawable/privacy_tips_svgrepo_com__2_" />
 
                             <Button
-                                android:layout_width="287dp"
+                                android:layout_width="250dp"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_horizontal"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Privacy Policy"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="22dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>
@@ -497,28 +508,29 @@
                                 android:layout_width="35dp"
                                 android:layout_height="36dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="6dp"
                                 android:src="@drawable/copyright_svgrepo_com"
                                 android:background="@drawable/icon_circle_three"/>
 
                             <Button
-                                android:layout_width="286dp"
+                                android:layout_width="250dp"
                                 android:layout_height="50dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Copyright Information"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="22dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
                         </LinearLayout>
 
@@ -533,28 +545,29 @@
                                 android:layout_height="34dp"
                                 android:layout_marginTop="17dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
                                 android:background="@drawable/icon_circle"
                                 android:src="@drawable/rate_rating_survey_22_svgrepo_com" />
 
                             <Button
-                                android:layout_width="287dp"
+                                android:layout_width="250dp"
                                 android:layout_height="50dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@null"
                                 android:backgroundTint="#00FFFFFF"
-                                android:textColor="@color/white"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="left|center_vertical"
                                 android:text="Rate Us"
-                                android:textStyle="bold"
-                                android:background="@null"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
 
-                                android:textSize="15sp" />
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_marginLeft="25dp"
-                                android:layout_marginTop="30dp"
+                                android:layout_height="19dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginRight="20dp"
                                 android:src="@drawable/right" />
 
                         </LinearLayout>

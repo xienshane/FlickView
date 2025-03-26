@@ -34,38 +34,38 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="55dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginBottom="30dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_cancel"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:text="CANCEL"
-            android:textSize="15sp"
-            android:textColor="#EAD9DE"
             android:backgroundTint="#FF6E40"
-            android:padding="12dp"
             android:fontFamily="sans-serif-black"
-            app:strokeWidth="1dp"
+            android:padding="12dp"
+            android:text="CANCEL"
+            android:textColor="#EAD9DE"
+            android:textSize="15sp"
             app:strokeColor="#FF5252"
-            android:layout_marginEnd="10dp"/>
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_logout2"
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:text="LOGOUT"
-            android:textSize="15sp"
-            android:textColor="#EAD9DE"
             android:backgroundTint="#FF5252"
-            android:padding="12dp"
             android:fontFamily="sans-serif-black"
-            app:strokeWidth="1dp"
+            android:padding="12dp"
+            android:text="LOGOUT"
+            android:textColor="#EAD9DE"
+            android:textSize="15sp"
             app:strokeColor="#FF6E40"
-            android:layout_marginEnd="10dp"/>
+            app:strokeWidth="1dp" />
 
     </LinearLayout>
 
