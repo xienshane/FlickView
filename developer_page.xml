@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#451961">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <ImageButton
+                android:id="@+id/button_back2"
+                android:backgroundTint="#3D2955"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/baseline_arrow_back_ios_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="About The Developers"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="289dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/dev_shape">
+
+        <ImageView
+            android:layout_width="146dp"
+            android:layout_height="142dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/icon_circle"
+            android:src="@drawable/janeen" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="369dp"
+        android:layout_height="209dp"
+        android:layout_marginLeft="20dp"
+        android:background="#FFFFFF"
+        android:translationY="-20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Janeen Gabrielle Lim"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="35dp"
+            android:text="Bachelor of Science in Computer Science" />
+
+        <FrameLayout
+            android:layout_width="351dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="60dp"
+            android:background="#8174A0"
+            android:padding="2dp" />
+
+        <TextView
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="70dp"
+            android:lineHeight="18dp"
+            android:justificationMode="inter_word"
+            android:text="Bringing ideas to life through UI/UX design and front-end development, Janeen ensures that FlickView is not just functional but also visually stunning and easy to use. With a knack for crafting intuitive interfaces, they make sure that users can browse, review, and discover movies effortlessly, creating an experience as engaging as the films themselves." />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="289dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/dev_shape">
+
+        <ImageView
+            android:layout_width="146dp"
+            android:layout_height="142dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/icon_circle"
+            android:src="@drawable/lovely" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="369dp"
+        android:layout_height="216dp"
+        android:layout_marginLeft="20dp"
+        android:background="#FFFFFF"
+        android:translationY="-20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Lovely Shane Ong"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="35dp"
+            android:text="Bachelor of Science in Computer Science" />
+
+        <FrameLayout
+            android:layout_width="351dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="60dp"
+            android:background="#8174A0"
+            android:padding="2dp" />
+
+        <TextView
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="70dp"
+            android:justificationMode="inter_word"
+            android:lineHeight="18dp"
+            android:text="With a deep love for movies and an eye for seamless functionality, Lovely specializes in backend development and database management. Their expertise ensures that FlickView runs smoothly, handling user reviews, ratings, and recommendations with efficiency. Passionate about innovation, they focus on building a robust and scalable system that delivers a top-notch experience for every movie enthusiast." />
+
+    </FrameLayout>
+</LinearLayout>
+</ScrollView>
+
