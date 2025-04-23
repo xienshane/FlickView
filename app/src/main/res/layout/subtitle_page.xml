@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#451961"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SUBTITLE PREFERENCES"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="20dp" />
+
+        <!-- Enable Subtitles Option -->
+        <Switch
+            android:id="@+id/switch_subtitles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enable Subtitles"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <!-- Subtitle Language -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Subtitle Language"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <Spinner
+            android:id="@+id/subtitle_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/subtitle_languages"
+            android:background="@android:drawable/btn_dropdown"
+            android:popupBackground="#ffffff" />
+
+        <!-- Subtitle Font Size -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtitle Font Size"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <SeekBar
+            android:id="@+id/seekbar_font_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="30"
+            android:progress="18"
+            android:thumb="@android:drawable/arrow_up_float"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Subtitle Position -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtitle Position"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <SeekBar
+            android:id="@+id/seekbar_position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="50"
+            android:thumb="@android:drawable/arrow_up_float"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Subtitle Background -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enable Subtitle Background"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <Switch
+            android:id="@+id/switch_subtitle_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>

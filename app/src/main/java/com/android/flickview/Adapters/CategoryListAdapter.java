@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.flickview.Activities.DetailActivity;
+import com.android.flickview.activities.DetailActivity;
 import com.android.flickview.Domains.GenresItem;
 import com.android.flickview.Domains.ListFilm;
 import com.android.flickview.R;

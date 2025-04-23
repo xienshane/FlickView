@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Flickview"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.DiscoverActivity"
+            android:name=".activities.DiscoverActivity"
             android:exported="true"
             android:theme="@style/Theme.Flickview">
             <intent-filter>
@@ -24,47 +24,76 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.RegisterActivity"
+        <activity android:name=".activities.RegisterActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.LoginActivity"
+        <activity android:name=".activities.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.LandingActivity"
+        <activity android:name=".activities.LandingActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.DetailActivity"
+        <activity android:name=".activities.DetailActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.ForgotPasswordActivity"
+        <activity android:name=".activities.ForgotPasswordActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.DeveloperPageActivity"
+        <activity android:name=".activities.DeveloperPageActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.EditProfileActivity"
+        <activity android:name=".activities.EditProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.ProfilePageActivity"
+        <activity android:name=".activities.ProfilePageActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.SettingsPageActivity"
+        <activity android:name=".activities.SettingsPageActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.AppLanguageListViewActivity"
+        <activity android:name=".activities.AppLanguageListViewActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 
-        <activity android:name=".Activities.NotificationsActivity"
+        <activity android:name=".activities.NotificationsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".activities.ClearCacheActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".activities.ClearDownloadsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".activities.CopyrightActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".activities.DisplayActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+
+        <activity android:name=".activities.RateUsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+        <activity android:name=".activities.PrivacyPolicyActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+        <activity android:name=".activities.RegionPreferencesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+        <activity android:name=".activities.SubtitlePreferencesActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
 

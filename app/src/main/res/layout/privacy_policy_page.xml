@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#451961"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="PRIVACY POLICY"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/privacy_policy_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:lineSpacingExtra="6dp"
+            android:fontFamily="sans-serif"
+            android:text="At CineScope, your privacy is important to us.\n\nWe collect minimal personal information necessary to enhance your experience, such as preferences and usage statistics. We do not sell, rent, or share your personal data with third parties without your consent.\n\nOur app may collect anonymized analytics data to improve functionality and user satisfaction.\n\nYou can contact us anytime at privacy@cinescope.app if you have concerns or questions.\n\nBy using CineScope, you agree to this privacy policy."
+            android:gravity="center" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BACK"
+            android:textSize="15sp"
+            android:textColor="#EAD9DE"
+            android:backgroundTint="#FF6E40"
+            android:padding="12dp"
+            android:fontFamily="sans-serif-black"
+            app:strokeWidth="1dp"
+            app:strokeColor="#FF5252"
+            android:layout_marginEnd="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

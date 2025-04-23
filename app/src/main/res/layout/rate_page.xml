@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:padding="24dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/rate_us_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enjoying FlickView?"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#222"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/rate_us_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We’d love your feedback! Please take a moment to rate us."
+        android:textSize="16sp"
+        android:textColor="#666"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <RatingBar
+        android:id="@+id/button_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textColor="#FFF"
+        android:backgroundTint="#FF5722"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/button_later"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maybe Later"
+        android:backgroundTint="#E0E0E0"
+        android:textColor="#000" />
+</LinearLayout>

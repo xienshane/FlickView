@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#451961"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="COPYRIGHT INFORMATION"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/copyright_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="© 2025 CineScope. All rights reserved.\n\nUnauthorized duplication or distribution of this app or its content is strictly prohibited.\n\nAll movie data, artwork, and metadata are the property of their respective owners.\n\nContact us at support@cinescope.app"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="6dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BACK"
+            android:textSize="15sp"
+            android:textColor="#EAD9DE"
+            android:backgroundTint="#FF6E40"
+            android:padding="12dp"
+            android:fontFamily="sans-serif-black"
+            app:strokeWidth="1dp"
+            app:strokeColor="#FF5252"
+            android:layout_marginEnd="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

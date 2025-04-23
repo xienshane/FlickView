@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#451961"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DISPLAY SETTINGS"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="20dp" />
+
+        <!-- Theme Option -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Theme"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <Spinner
+            android:id="@+id/theme_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/theme_options"
+            android:background="@android:drawable/btn_dropdown"
+            android:popupBackground="#ffffff" />
+
+        <!-- Font Size -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Font Size"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <Spinner
+            android:id="@+id/font_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/font_options"
+            android:background="@android:drawable/btn_dropdown"
+            android:popupBackground="#ffffff" />
+
+        <!-- Show Movie Posters -->
+        <Switch
+            android:id="@+id/switch_posters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Movie Posters"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <!-- Reduce Animations -->
+        <Switch
+            android:id="@+id/switch_reduce_anim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reduce Animations"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+</ScrollView>
