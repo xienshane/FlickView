@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#451961">
 
+    <!-- ScrollView for content -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="821dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="#451961">
 
@@ -17,6 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Profile header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +47,7 @@
 
             </LinearLayout>
 
-
+            <!-- User Info -->
             <ImageView
                 android:layout_width="142dp"
                 android:layout_height="175dp"
@@ -69,6 +72,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
+            <!-- Buttons for Edit Profile and Watch History -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="66dp"
@@ -96,22 +100,22 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
+            <!-- Stats Section (Related Movies, Liked Movies, Average Ratings) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <!-- Related Movies -->
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-
                     <View
                         android:layout_width="119dp"
                         android:layout_height="128dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="10dp"
                         android:background="#4D020202" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -121,7 +125,6 @@
                         android:text="Related Movies"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -130,19 +133,17 @@
                         android:text="40"
                         android:textColor="#FFFFFF"
                         android:textSize="60sp" />
-
                 </FrameLayout>
 
+                <!-- Liked Movies -->
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-
                     <View
                         android:layout_width="119dp"
                         android:layout_height="128dp"
                         android:layout_marginRight="10dp"
                         android:background="#4D020202" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -151,7 +152,6 @@
                         android:text="Liked Movies"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -160,19 +160,17 @@
                         android:text="12"
                         android:textColor="@color/white"
                         android:textSize="60sp" />
-
                 </FrameLayout>
 
+                <!-- Average Ratings -->
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-
                     <View
                         android:layout_width="119dp"
                         android:layout_height="128dp"
                         android:layout_marginRight="10dp"
                         android:background="#4D000000" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -181,7 +179,6 @@
                         android:text="Average Ratings"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -190,74 +187,41 @@
                         android:text="4.5"
                         android:textColor="@color/white"
                         android:textSize="60sp" />
-
                 </FrameLayout>
-
             </LinearLayout>
 
+            <!-- Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="285dp"
                 android:orientation="vertical">
 
-                <FrameLayout
-                    android:layout_width="390dp"
-                    android:layout_height="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#514477">
-
-                </FrameLayout>
-
+                <!-- Activity Center Button -->
                 <FrameLayout
                     android:layout_width="390dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:background="#3A7DD0">
-
                     <Button
                         android:layout_width="229dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@null"
                         android:backgroundTint="#3A7DD0"
-                        android:fontFamily="sans-serif"
                         android:text="Activity Center"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
                 </FrameLayout>
 
+                <!-- Settings Button -->
                 <FrameLayout
                     android:layout_width="390dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:background="#3A7DD0">
-
-                    <Button
-                        android:layout_width="231dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@null"
-                        android:backgroundTint="#3A7DD0"
-                        android:fontFamily="sans-serif"
-                        android:text="Display"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="390dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#3A7DD0">
-
                     <Button
                         android:id="@+id/button_settings"
                         android:layout_width="236dp"
@@ -265,28 +229,25 @@
                         android:layout_gravity="center"
                         android:background="@null"
                         android:backgroundTint="#3A7DD0"
-                        android:fontFamily="sans-serif"
                         android:text="Settings"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
                 </FrameLayout>
 
+                <!-- Log Out Button -->
                 <FrameLayout
                     android:layout_width="390dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:background="#E63946">
-
                     <Button
                         android:id="@+id/button_logout"
                         android:layout_width="244dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:backgroundTint="#E63946"
-                        android:fontFamily="sans-serif"
                         android:text="Log Out"
                         android:textColor="@color/white"
                         android:textSize="20sp"
@@ -294,15 +255,21 @@
                 </FrameLayout>
 
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
+    <!-- BottomNavigationView -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
-        android:background="@color/white"
+        android:id="@+id/bottomNavigationView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/curved_bottom_nav"
+        android:elevation="8dp"
+        app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
-    </LinearLayout>
-
+        app:itemIconTint="@color/bottom_nav_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemTextColor="@color/bottom_nav_selector"/>
+</LinearLayout>

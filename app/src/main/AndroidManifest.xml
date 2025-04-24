@@ -96,6 +96,18 @@
         <activity android:name=".activities.SubtitlePreferencesActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
+        <activity android:name=".activities.FavoritesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+        <activity android:name=".activities.FavoritesFragment"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+        <activity android:name=".activities.ProfileFragment"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
+        <activity android:name=".activities.HomeFragment"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
 
     </application>
 

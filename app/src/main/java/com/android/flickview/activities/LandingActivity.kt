@@ -180,12 +180,27 @@ class LandingActivity : Activity() {
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView3)
         bottomNavigationView.setOnItemSelectedListener { item ->
-            if (item.itemId == R.id.profile) {
-                val intent = Intent(this@LandingActivity, ProfilePageActivity::class.java)
-                startActivity(intent)
-                return@setOnItemSelectedListener true
+            when (item.itemId) {
+                R.id.home -> {
+                    // Already on LandingActivity, optionally refresh or scroll to top
+                    // Example: scroll a RecyclerView to the top
+                    recycleViewBestMovies.smoothScrollToPosition(0)
+                    true
+                }
+                R.id.favorites -> {
+                    // Navigate to FavoritesActivity
+                    startActivity(Intent(this, FavoritesActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    true
+                }
+                R.id.profile -> {
+                    // Navigate to ProfilePageActivity
+                    startActivity(Intent(this, ProfilePageActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    true
+                }
+                else -> false
             }
-            false
         }
 
 

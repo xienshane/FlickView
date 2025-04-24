@@ -15,6 +15,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.android.flickview.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfilePageActivity : Activity() {
     @SuppressLint("MissingInflatedId")
@@ -46,6 +47,32 @@ class ProfilePageActivity : Activity() {
         val buttonEditProf: Button = findViewById(R.id.button_edit)
         buttonEditProf.setOnClickListener {
             showCustomDialogBox2()
+        }
+
+        // Bottom Navigation View Setup
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView3)
+
+        // Set the selected item to 'profile' when ProfilePageActivity is opened
+        bottomNavigationView.selectedItemId = R.id.profile
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    startActivity(Intent(this, LandingActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    true
+                }
+                R.id.profile -> {
+                    // You are already in ProfileActivity, so nothing happens
+                    true
+                }
+                R.id.favorites -> {
+                    startActivity(Intent(this, FavoritesActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    true
+                }
+                else -> false
+            }
         }
     }
 
