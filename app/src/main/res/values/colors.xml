@@ -6,6 +6,7 @@
 <color name="colorPrimaryDark">#202125</color>
 <color name="colorHelper">#303135</color>
 <color name="colorAccent">#4caf50</color>
+    <color name="bg">#FF3A2565</color>
 
 <color name="colorBackground">@color/colorPrimary</color>
 <color name="white">#FFFFFF</color>

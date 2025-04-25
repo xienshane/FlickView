@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.android.flickview.R
 
@@ -14,6 +15,11 @@ class ForgotPasswordActivity : Activity() {
 
         val emailEditText = findViewById<EditText>(R.id.email)
         val sendEmailButton = findViewById<Button>(R.id.sendEmailButton)
+
+        val txtBack: TextView = findViewById(R.id.backtoLogin)
+        txtBack.setOnClickListener {
+            finish()
+        }
 
         sendEmailButton.setOnClickListener {
             val email = emailEditText.text.toString()
