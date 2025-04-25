@@ -3,6 +3,7 @@ package com.android.flickview.activities
 import android.app.Activity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.ImageButton
 import android.widget.ListView
 import com.android.flickview.R
 
@@ -16,5 +17,10 @@ class AppLanguageListViewActivity : Activity() {
         val arrayAdapter = ArrayAdapter(this, R.layout.text_color_page, languageList)
 
         listView.adapter = arrayAdapter
+
+        val buttonBack: ImageButton = findViewById(R.id.buttonback)
+        buttonBack.setOnClickListener {
+            finish()
+        }
     }
 }
