@@ -8,9 +8,11 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.flickview.R
+import com.android.flickview.dialogs.ClearCacheDialogFragment
 
-class SettingsPageActivity : Activity() {
+class SettingsPageActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,13 +97,15 @@ class SettingsPageActivity : Activity() {
 
         val buttonCache: Button = findViewById(R.id.button_cache)
         buttonCache.setOnClickListener {
-            Log.d("Cache", "Cache button clicked");
-            Toast.makeText(this, "Cache settings clicked", Toast.LENGTH_SHORT).show();
+            Log.d("Cache", "Cache button clicked")
+            Toast.makeText(this, "Cache settings clicked", Toast.LENGTH_SHORT).show()
 
-
-             val intent = Intent(this, ClearCacheActivity::class.java)
-            startActivity(intent)
+            // Show the ClearCacheDialogFragment directly
+            val dialog = ClearCacheDialogFragment()
+            dialog.show(supportFragmentManager, "ClearCacheDialog")
         }
+
+
 
         val buttonPrivacy: Button = findViewById(R.id.button_privacy)
         buttonPrivacy.setOnClickListener {
