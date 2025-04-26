@@ -3,4 +3,10 @@
     <style name="CustomDialogStyle" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="SpinnerTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:popupBackground">@color/white</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+
 </resources>

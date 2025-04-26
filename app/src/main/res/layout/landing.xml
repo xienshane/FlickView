@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3A2565"
+    android:background="@color/bg"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
@@ -178,7 +178,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <ProgressBar
                     android:id="@+id/progressBar3"
@@ -214,11 +214,12 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/curved_bottom_nav"
         android:elevation="8dp"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/bottom_nav_selector"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:itemTextColor="@color/bottom_nav_selector"
+
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

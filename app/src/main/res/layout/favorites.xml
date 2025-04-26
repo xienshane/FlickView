@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-    android:background="#451961">
+    android:background="@color/bg">
 
     <!-- ScrollView for content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@android:color/transparent"
         android:layout_weight="1">
 
         <LinearLayout
@@ -67,9 +67,10 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/curved_bottom_nav"
         android:elevation="8dp"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/bottom_nav_selector"
+        app:itemTextColor="@color/bottom_nav_selector"
+
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:itemTextColor="@color/bottom_nav_selector" />
+        app:menu="@menu/bottom_nav_menu"/>
 </LinearLayout>
