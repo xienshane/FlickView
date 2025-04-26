@@ -3,6 +3,7 @@ package com.android.flickview.activities
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Switch
 import android.widget.Toast
@@ -21,6 +22,11 @@ class DisplayActivity : AppCompatActivity() {
         val fontSpinner: Spinner = findViewById(R.id.font_spinner)
         val switchPosters: Switch = findViewById(R.id.switch_posters)
         val switchReduceAnim: Switch = findViewById(R.id.switch_reduce_anim)
+
+        val buttonBack: ImageView = findViewById(R.id.button_back2)
+        buttonBack.setOnClickListener {
+            finish()
+        }
 
         // Load saved preferences
         loadPreferences()

@@ -20,11 +20,12 @@
 
             <ImageButton
                 android:id="@+id/button_back2"
-                android:backgroundTint="#3D2955"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="37dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="3dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#3D2955"
                 android:src="@drawable/baseline_arrow_back_ios_24" />
 
             <!-- Title -->
@@ -43,7 +44,7 @@
 
         <!-- Divider Line -->
         <View
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="3dp"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
@@ -63,7 +64,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="6dp"
             app:cardBackgroundColor="#502869"
             android:layout_marginTop="10dp">
@@ -74,9 +75,8 @@
                 android:layout_height="wrap_content"
                 android:entries="@array/theme_options"
                 android:padding="12dp"
-                android:background="?attr/selectableItemBackground"
-                android:popupBackground="#ffffff"
-                android:theme="@style/SpinnerTheme" />
+                android:background="@drawable/spinner_background"
+                android:popupBackground="@drawable/spinner_popup_background"/>
         </androidx.cardview.widget.CardView>
 
         <!-- Font Size Option -->
@@ -92,7 +92,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="6dp"
             app:cardBackgroundColor="#502869"
             android:layout_marginTop="10dp">
@@ -101,11 +101,10 @@
                 android:id="@+id/font_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/font_options"
                 android:padding="12dp"
-                android:background="?attr/selectableItemBackground"
-                android:popupBackground="#ffffff"
-                android:theme="@style/SpinnerTheme" />
+                android:entries="@array/font_options"
+                android:background="@drawable/spinner_background"
+                android:popupBackground="@drawable/spinner_popup_background" />
         </androidx.cardview.widget.CardView>
 
         <!-- Show Movie Posters Switch -->

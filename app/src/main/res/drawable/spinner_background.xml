@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background shape -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFC107"/> <!-- Your background color -->
+            <corners android:radius="12dp"/> <!-- Soft rounded corners -->
+        </shape>
+    </item>
+
+    <!-- Dropdown icon aligned to the right -->
+    <item
+        android:drawable="@drawable/down"
+    android:gravity="end|center_vertical"
+    android:right="16dp"/> <!-- Padding from right side -->
+</layer-list>

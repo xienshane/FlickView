@@ -98,6 +98,8 @@ class ProfilePageActivity : Activity() {
         buttonLogoutConfirm.setOnClickListener {
             Toast.makeText(this, "Logging out...", Toast.LENGTH_LONG).show()
             dialog.dismiss()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
         buttonCancel.setOnClickListener {

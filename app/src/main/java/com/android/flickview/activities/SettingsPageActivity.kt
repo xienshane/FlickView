@@ -67,14 +67,14 @@ class SettingsPageActivity : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 
-//        val buttonDisplay: Button = findViewById(R.id.button_display)
-//        buttonDisplay.setOnClickListener {
-//            Log.d("Display", "Display button clicked");
-//            Toast.makeText(this, "Display settings clicked", Toast.LENGTH_SHORT).show();
-//
-//             val intent = Intent(this, DisplayActivity::class.java)
-//             startActivity(intent)
-//        }
+        val buttonDisplay: LinearLayout = findViewById(R.id.button_display)
+        buttonDisplay.setOnClickListener {
+            Log.d("Display", "Display button clicked");
+            Toast.makeText(this, "Display settings clicked", Toast.LENGTH_SHORT).show();
+
+             val intent = Intent(this, DisplayActivity::class.java)
+             startActivity(intent)
+        }
 
         val buttonNotifications: LinearLayout = findViewById(R.id.button_notifications)
         buttonNotifications.setOnClickListener {
