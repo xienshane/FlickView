@@ -72,10 +72,6 @@
 <!--            android:exported="false"-->
 <!--            android:theme="@style/Theme.Flickview" />-->
 
-        <activity android:name=".activities.ClearDownloadsActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Flickview" />
-
         <activity android:name=".activities.CopyrightActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
@@ -91,9 +87,6 @@
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
         <activity android:name=".activities.RegionPreferencesActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Flickview" />
-        <activity android:name=".activities.SubtitlePreferencesActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
         <activity android:name=".activities.FavoritesActivity"
