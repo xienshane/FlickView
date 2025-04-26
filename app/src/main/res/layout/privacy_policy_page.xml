@@ -1,61 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#451961"
-    android:padding="20dp">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:padding="24dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:text="PRIVACY POLICY"
-        android:textStyle="bold"
-        android:textSize="26sp"
-        android:textColor="@color/white"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal" />
+    <!-- Top Back Button -->
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_ios_25"
+        android:contentDescription="Back"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:elevation="6dp"/>
 
-    <ScrollView
+    <!-- Main Content Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/privacy_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#3D2955">
 
-        <TextView
-            android:id="@+id/privacy_policy_text"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:lineSpacingExtra="6dp"
-            android:fontFamily="sans-serif"
-            android:text="At CineScope, your privacy is important to us.\n\nWe collect minimal personal information necessary to enhance your experience, such as preferences and usage statistics. We do not sell, rent, or share your personal data with third parties without your consent.\n\nOur app may collect anonymized analytics data to improve functionality and user satisfaction.\n\nYou can contact us anytime at privacy@cinescope.app if you have concerns or questions.\n\nBy using CineScope, you agree to this privacy policy."
-            android:gravity="center" />
-    </ScrollView>
+            android:padding="24dp"
+            android:gravity="center_horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp">
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="PRIVACY POLICY"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@color/white"
+                android:gravity="center"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BACK"
-            android:textSize="15sp"
-            android:textColor="#EAD9DE"
-            android:backgroundTint="#FF6E40"
-            android:padding="12dp"
-            android:fontFamily="sans-serif-black"
-            app:strokeWidth="1dp"
-            app:strokeColor="#FF5252"
-            android:layout_marginEnd="10dp"/>
-    </LinearLayout>
+            <!-- Divider Line -->
+            <View
+                android:layout_width="60dp"
+                android:layout_height="3dp"
+                android:backgroundTint="#FFC107"
+                android:background="#FFC107"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"/>
 
-</LinearLayout>
+            <!-- Main Message inside ScrollView -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/privacy_policy_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="At FlickView, your privacy is important to us.\n\nWe collect minimal personal information necessary to enhance your experience, such as preferences and usage statistics. We do not sell, rent, or share your personal data with third parties without your consent.\n\nOur app may collect anonymized analytics data to improve functionality and user satisfaction.\n\nYou can contact us anytime at privacy@flickview.app if you have concerns or questions.\n\nBy using FlickView, you agree to this privacy policy."
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:lineSpacingExtra="6dp"
+                    android:layout_marginBottom="20dp"/>
+            </ScrollView>
+
+            <!-- Version Info -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App Version: 1.0.0"
+                android:textColor="#C9B6D9"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

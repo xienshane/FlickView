@@ -22,7 +22,7 @@ class DiscoverActivity : Activity() {
 
             Toast.makeText(this, "Button is clicked.", Toast.LENGTH_LONG).show()
 
-            val intent = Intent(this, RegisterActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
 

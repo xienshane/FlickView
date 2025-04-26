@@ -1,156 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#451961">
+    android:background="@drawable/gradient"
+    android:padding="20dp">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <!-- Top Bar -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_height="wrap_content">
 
+            <!-- Back Button -->
             <ImageButton
                 android:id="@+id/button_back2"
-                android:backgroundTint="#3D2955"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="3dp"
-                android:src="@drawable/baseline_arrow_back_ios_24" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_arrow_back_ios_25"
+                android:contentDescription="Back"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:elevation="8dp" />
 
+            <!-- Page Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="About The Developers"
-                android:textColor="@color/white"
-                android:textSize="20sp"/>
-        </LinearLayout>
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp" />
 
-    <FrameLayout
-        android:layout_width="289dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/dev_shape">
+        </RelativeLayout>
 
-        <ImageView
-            android:layout_width="146dp"
-            android:layout_height="142dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/icon_circle"
-            android:src="@drawable/janeen" />
+        <!-- SPACE between header and first card -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="369dp"
-        android:layout_height="209dp"
-        android:layout_marginLeft="20dp"
-        android:background="#FFFFFF"
-        android:translationY="-20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Developer 1 Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Janeen Gabrielle Lim"
-            android:textSize="20sp" />
+            app:cardCornerRadius="20dp"
+            app:cardElevation="500dp"
+            android:backgroundTint="#3D2955">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center_horizontal">
+
+                <!-- Profile Pic -->
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/janeen"
+                    android:background="@drawable/icon_circle"
+                    android:scaleType="centerCrop" />
+
+                <!-- Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Janeen Gabrielle Lim"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+
+                <!-- Course -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bachelor of Science in Computer Science"
+                    android:textColor="#C9B6D9"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="3dp"
+                    android:background="#FFC107"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Description -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dev_janeen_description"
+                    android:text="Bringing ideas to life through UI/UX design and front-end development, Janeen ensures that FlickView is not just functional but also visually stunning and easy to use. With a knack for crafting intuitive interfaces, they make sure that users can browse, review, and discover movies effortlessly, creating an experience as engaging as the films themselves."
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="6dp"
+                    android:gravity="center"
+                    android:justificationMode="inter_word" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- SPACE between first and second card -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <!-- Developer 2 Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="35dp"
-            android:text="Bachelor of Science in Computer Science" />
+            app:cardCornerRadius="20dp"
+            app:cardElevation="500dp"
+            android:backgroundTint="#3D2955">
 
-        <FrameLayout
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="60dp"
-            android:background="#8174A0"
-            android:padding="2dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="356dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="70dp"
-            android:lineHeight="18dp"
-            android:justificationMode="inter_word"
-            android:text="Bringing ideas to life through UI/UX design and front-end development, Janeen ensures that FlickView is not just functional but also visually stunning and easy to use. With a knack for crafting intuitive interfaces, they make sure that users can browse, review, and discover movies effortlessly, creating an experience as engaging as the films themselves." />
+                <!-- Profile Pic -->
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/lovely"
+                    android:background="@drawable/icon_circle"
+                    android:scaleType="centerCrop" />
 
-    </FrameLayout>
+                <!-- Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lovely Shane Ong"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
 
-    <FrameLayout
-        android:layout_width="289dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/dev_shape">
+                <!-- Course -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bachelor of Science in Computer Science"
+                    android:textColor="#C9B6D9"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
 
-        <ImageView
-            android:layout_width="146dp"
-            android:layout_height="142dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/icon_circle"
-            android:src="@drawable/lovely" />
+                <!-- Divider -->
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="3dp"
+                    android:background="#FFC107"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp" />
 
-    </FrameLayout>
+                <!-- Description -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dev_lovely_description"
+                    android:text="With a deep love for movies and an eye for seamless functionality, Lovely specializes in backend development and database management. Their expertise ensures that FlickView runs smoothly, handling user reviews, ratings, and recommendations with efficiency. Passionate about innovation, they focus on building a robust and scalable system that delivers a top-notch experience for every movie enthusiast."
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="6dp"
+                    android:gravity="center"
+                    android:justificationMode="inter_word" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-    <FrameLayout
-        android:layout_width="369dp"
-        android:layout_height="216dp"
-        android:layout_marginLeft="20dp"
-        android:background="#FFFFFF"
-        android:translationY="-20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Lovely Shane Ong"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="35dp"
-            android:text="Bachelor of Science in Computer Science" />
-
-        <FrameLayout
-            android:layout_width="351dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="60dp"
-            android:background="#8174A0"
-            android:padding="2dp" />
-
-        <TextView
-            android:layout_width="356dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="70dp"
-            android:justificationMode="inter_word"
-            android:lineHeight="18dp"
-            android:text="With a deep love for movies and an eye for seamless functionality, Lovely specializes in backend development and database management. Their expertise ensures that FlickView runs smoothly, handling user reviews, ratings, and recommendations with efficiency. Passionate about innovation, they focus on building a robust and scalable system that delivers a top-notch experience for every movie enthusiast." />
-
-    </FrameLayout>
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>
-
