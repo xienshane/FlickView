@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.android.flickview.R
@@ -33,7 +34,7 @@ class ProfilePageActivity : Activity() {
         }
 
         // Back Button
-        val buttonBack: ImageButton = findViewById(R.id.button_back)
+        val buttonBack: ImageView = findViewById(R.id.button_back)
         buttonBack.setOnClickListener {
             finish()
         }
