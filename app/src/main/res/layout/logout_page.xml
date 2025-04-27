@@ -42,7 +42,7 @@
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:lineSpacingExtra="6dp"
-            android:text="Are you sure you want to log out?\nYou will need to log in again to continue."
+            android:text="Are you sure you want to log out?"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
@@ -74,7 +74,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:backgroundTint="#009688"
-                android:text="LOGOUT"
+                android:text="YES"
                 android:textColor="#EAD9DE"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/ic_logout" />

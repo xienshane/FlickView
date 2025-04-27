@@ -8,8 +8,11 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
+import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -23,6 +26,11 @@ class ProfilePageActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_page)
+
+        val rootView = findViewById<View>(android.R.id.content)
+        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+        rootView.startAnimation(fadeIn)
+
 
         // Settings Button
         val buttonSettings: Button = findViewById(R.id.button_settings)
@@ -84,16 +92,23 @@ class ProfilePageActivity : Activity() {
         dialog.setContentView(R.layout.logout_page)
 
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        // Dynamically adjusting the dialog width and height
+        val layoutParams = dialog.window?.attributes
+        layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
+        layoutParams?.height = ViewGroup.LayoutParams.WRAP_CONTENT
+        dialog.window?.attributes = layoutParams
+
         dialog.window?.setGravity(android.view.Gravity.CENTER)
 
-        val textMessage: TextView = dialog.findViewById(R.id.button_message)
-        val buttonCancel: Button = dialog.findViewById(R.id.button_cancel)
+        val textMessage: TextView = dialog.findViewById(R.id.logout_message)
+        val buttonCancel: Button = dialog.findViewById(R.id.button_cancel_logout)
         val buttonLogoutConfirm: Button = dialog.findViewById(R.id.button_logout2)
 
         textMessage.text = message
+
+        // Adjust text size or other text properties if needed
+        textMessage.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
 
         buttonLogoutConfirm.setOnClickListener {
             Toast.makeText(this, "Logging out...", Toast.LENGTH_LONG).show()
@@ -108,6 +123,7 @@ class ProfilePageActivity : Activity() {
 
         dialog.show()
     }
+
 
     private fun showCustomDialogBox2() {
         val dialog = Dialog(this)
