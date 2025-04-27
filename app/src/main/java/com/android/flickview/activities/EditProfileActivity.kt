@@ -3,7 +3,9 @@ package com.android.flickview.activities;
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.flickview.Adapters.FavoritesAdapter
@@ -20,6 +22,11 @@ class EditProfileActivity: Activity() {
         // Back Button
         val buttonBack : ImageButton = findViewById(R.id.buttonback)
         buttonBack.setOnClickListener{
+            finish()
+        }
+
+        val  btnCancel: Button = findViewById(R.id.button_cancel)
+        btnCancel.setOnClickListener {
             finish()
         }
     }

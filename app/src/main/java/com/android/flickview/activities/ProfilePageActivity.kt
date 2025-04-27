@@ -55,7 +55,10 @@ class ProfilePageActivity : Activity() {
 
         val buttonEditProf: Button = findViewById(R.id.button_edit)
         buttonEditProf.setOnClickListener {
-            showCustomDialogBox2()
+            Log.e("EditProf", "Edit Profile is clicked")
+            Toast.makeText(this, "Edit Profile is clicked", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
         }
 
         // Bottom Navigation View Setup
