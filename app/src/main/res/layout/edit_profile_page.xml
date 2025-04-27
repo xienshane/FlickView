@@ -1,116 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#451961">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#451961"
+    android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="6dp"
-        android:gravity="center">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
+        <ImageButton
+            android:id="@+id/buttonback"
+            android:layout_width="34dp"
+            android:layout_height="27dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:backgroundTint="#3D2955"
+            android:src="@drawable/baseline_arrow_back_ios_24" />
+
+
+
+        <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:layout_marginTop = "5dp"/>
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- Profile Image with Edit Icon -->
+        <FrameLayout
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="20dp">
+
+            <!-- Profile Picture -->
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/user"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_background"
+                android:padding="6dp" />
+
+            <!-- Small Edit Icon -->
+            <ImageButton
+                android:id="@+id/edit_image_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="4dp"
+                android:background="@drawable/edit_icon_background"
+                android:src="@drawable/ic_edit"
+                android:scaleType="centerInside"
+                android:contentDescription="Edit Profile Picture"
+                android:tint="@color/white"/>
+        </FrameLayout>
+
+
+        <!-- Name Field -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginTop="30dp"
+            app:cardBackgroundColor="#502869">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_edit"
+                android:hint="New Name"
+                android:padding="16dp"
+
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="#BDBDBD"
+                android:textSize="16sp"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Password Field -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#502869">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="New Password"
+                android:padding="16dp"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/baseline_lock_24"
+                android:drawableTint="@color/white"
+                android:textColor="@color/white"
+                android:textColorHint="#BDBDBD"
+                android:textSize="16sp"
+                android:background="@android:color/transparent"
+                android:inputType="textPassword"
+                android:fontFamily="sans-serif" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_cancel"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/gray9ba0a6"
+                android:fontFamily="sans-serif-black"
+                android:text="CANCEL"
+                android:textColor="#EAD9DE"
+                android:textSize="15sp"
+                app:cornerRadius="24dp"
+                app:strokeColor="@color/colorPrimaryDark"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_save"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="SAVE"
+                android:textSize="15sp"
+                android:textColor="#EAD9DE"
+                android:backgroundTint="#009688"
+                app:cornerRadius="24dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#009688"
+                android:layout_marginStart="10dp"
+                android:fontFamily="sans-serif-black" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="142dp"
-        android:layout_height="175dp"
-        android:layout_marginTop="20sp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/user" />
-
-    <LinearLayout android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text=" New Name: "
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"/>
-
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="266dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:textSize="16sp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text=" New Password: "
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"/>
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="266dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_cancel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="CANCEL"
-            android:textSize="15sp"
-            android:textColor="#EAD9DE"
-            android:backgroundTint="#FF6E40"
-            android:padding="12dp"
-            android:fontFamily="sans-serif-black"
-            app:strokeWidth="1dp"
-            app:strokeColor="#FF5252"
-            android:layout_marginEnd="10dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_save"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="SAVE"
-            android:textSize="15sp"
-            android:textColor="#EAD9DE"
-            android:backgroundTint="#FF5252"
-            android:padding="12dp"
-            android:fontFamily="sans-serif-black"
-            app:strokeWidth="1dp"
-            app:strokeColor="#FF6E40"
-            android:layout_marginEnd="10dp"/>
-
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>
