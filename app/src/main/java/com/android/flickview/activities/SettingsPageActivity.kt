@@ -49,14 +49,14 @@ class SettingsPageActivity : AppCompatActivity() {
             finish() // Goes back to the previous page
         }
 
-        val buttonRegion: LinearLayout = findViewById(R.id.button_region)
-        buttonRegion.setOnClickListener {
-            Log.e("Region", "Button is clicked")
-            Toast.makeText(this, "Region Preferences page is clicked", Toast.LENGTH_LONG).show()
-
-            val intent = Intent(this, RegionPreferencesActivity::class.java)
-            startActivity(intent)
-        }
+//        val buttonRegion: LinearLayout = findViewById(R.id.button_region)
+//        buttonRegion.setOnClickListener {
+//            Log.e("Region", "Button is clicked")
+//            Toast.makeText(this, "Region Preferences page is clicked", Toast.LENGTH_LONG).show()
+//
+//            val intent = Intent(this, RegionPreferencesActivity::class.java)
+//            startActivity(intent)
+//        }
 
 //        val buttonSubtitles: Button = findViewById(R.id.button_subtitles)
 //        buttonSubtitles.setOnClickListener {
@@ -76,14 +76,14 @@ class SettingsPageActivity : AppCompatActivity() {
              startActivity(intent)
         }
 
-        val buttonNotifications: LinearLayout = findViewById(R.id.button_notifications)
-        buttonNotifications.setOnClickListener {
-            Log.d("Notifications", "Notifications button clicked");
-            Toast.makeText(this, "Notifications settings clicked", Toast.LENGTH_SHORT).show();
-
-            val intent = Intent(this, NotificationsActivity::class.java)
-             startActivity(intent)
-        }
+//        val buttonNotifications: LinearLayout = findViewById(R.id.button_notifications)
+//        buttonNotifications.setOnClickListener {
+//            Log.d("Notifications", "Notifications button clicked");
+//            Toast.makeText(this, "Notifications settings clicked", Toast.LENGTH_SHORT).show();
+//
+//            val intent = Intent(this, NotificationsActivity::class.java)
+//             startActivity(intent)
+//        }
 
         //val buttonFavorites: Button = findViewById(R.id.button_favorites)
         //buttonFavorites.setOnClickListener {
