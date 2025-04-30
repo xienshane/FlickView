@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
+    android:background="@drawable/gradient"
     android:padding="24dp"
     android:orientation="vertical"
     android:gravity="center">
@@ -39,17 +39,17 @@
         android:id="@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        android:textColor="#FFF"
-        android:backgroundTint="#FF5722"
+        android:text="      Submit      "
+        android:textColor="#FFFF"
+        android:background="@drawable/dev_shape"
         android:padding="12dp"
         android:layout_marginBottom="12dp" />
 
     <Button
         android:id="@+id/button_later"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/curved_bottom_nav"
         android:text="Maybe Later"
-        android:backgroundTint="#E0E0E0"
         android:textColor="#000" />
 </LinearLayout>
