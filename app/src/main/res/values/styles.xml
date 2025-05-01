@@ -8,5 +8,9 @@
         <item name="android:popupBackground">@color/white</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
     </style>
+    <style name="RatingBarYellow" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#CCCCCC</item> <!-- Color for empty stars -->
+        <item name="colorControlActivated">#FFDE21</item> <!-- Color for filled stars -->
+    </style>
 
 </resources>

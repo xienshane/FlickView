@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,9 @@
         android:theme="@style/Theme.Flickview"
         tools:targetApi="31">
         <activity
+            android:name=".activities.ReviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DiscoverActivity"
             android:exported="true"
             android:theme="@style/Theme.Flickview">
@@ -23,85 +27,88 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activities.RegisterActivity"
+        <activity
+            android:name=".activities.RegisterActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.LoginActivity"
+        <activity
+            android:name=".activities.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.LandingActivity"
+        <activity
+            android:name=".activities.LandingActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.DetailActivity"
+        <activity
+            android:name=".activities.DetailActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.ForgotPasswordActivity"
+        <activity
+            android:name=".activities.ForgotPasswordActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.DeveloperPageActivity"
+        <activity
+            android:name=".activities.DeveloperPageActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.EditProfileActivity"
+        <activity
+            android:name=".activities.EditProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.ProfilePageActivity"
+        <activity
+            android:name=".activities.ProfilePageActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.SettingsPageActivity"
+        <activity
+            android:name=".activities.SettingsPageActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.AppLanguageListViewActivity"
+        <activity
+            android:name=".activities.AppLanguageListViewActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.NotificationsActivity"
+        <activity
+            android:name=".activities.NotificationsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" /> <!-- <activity android:name=".activities.ClearCacheActivity" -->
+        <!-- android:exported="false" -->
+        <!-- android:theme="@style/Theme.Flickview" /> -->
+        <activity
+            android:name=".activities.CopyrightActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-<!--        <activity android:name=".activities.ClearCacheActivity"-->
-<!--            android:exported="false"-->
-<!--            android:theme="@style/Theme.Flickview" />-->
-
-        <activity android:name=".activities.CopyrightActivity"
+        <activity
+            android:name=".activities.DisplayActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.DisplayActivity"
+        <activity
+            android:name=".activities.RateUsActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-
-        <activity android:name=".activities.RateUsActivity"
+        <activity
+            android:name=".activities.PrivacyPolicyActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-        <activity android:name=".activities.PrivacyPolicyActivity"
+        <activity
+            android:name=".activities.RegionPreferencesActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-        <activity android:name=".activities.RegionPreferencesActivity"
+        <activity
+            android:name=".activities.FavoritesActivity"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-        <activity android:name=".activities.FavoritesActivity"
+        <activity
+            android:name=".activities.FavoritesFragment"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-        <activity android:name=".activities.FavoritesFragment"
+        <activity
+            android:name=".activities.ProfileFragment"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-        <activity android:name=".activities.ProfileFragment"
+        <activity
+            android:name=".activities.HomeFragment"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
-        <activity android:name=".activities.HomeFragment"
-            android:exported="false"
-            android:theme="@style/Theme.Flickview" />
-
     </application>
 
 </manifest>

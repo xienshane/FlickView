@@ -1,123 +1,212 @@
 package com.android.flickview.activities
 
-import android.app.Activity
 import android.content.Intent
-// Remove SharedPreferences imports
-// import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar // Optional: for loading indicator
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity // Change to AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.android.flickview.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest // Import for setting displayName
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue // Import for server timestamp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-// Change Activity to AppCompatActivity
 class RegisterActivity : AppCompatActivity() {
-
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore // Declare Firestore instance
 
-    // Define a TAG for logging
+    // Optional: Add ProgressBar reference
+    // private lateinit var progressBar: ProgressBar
+
     private val TAG = "RegisterActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
 
-        // Initialize Firebase Auth
+        // Initialize Firebase Auth and Firestore
         auth = Firebase.auth
+        db = Firebase.firestore // Initialize Firestore
 
         val emailEditText = findViewById<EditText>(R.id.email)
-        val usernameEditText = findViewById<EditText>(R.id.username) // Keep username for profile, but not for login
-        val passwordEditText = findViewById<EditText>(R.id.password2) // Assuming this is password
-        val confirmPasswordEditText = findViewById<EditText>(R.id.password) // Assuming this is confirm password
+        val usernameEditText = findViewById<EditText>(R.id.username)
+        val passwordEditText = findViewById<EditText>(R.id.password2)
+        val confirmPasswordEditText = findViewById<EditText>(R.id.password)
         val createAccBtn = findViewById<Button>(R.id.createAccountBtn)
         val alrHaveAccBtn = findViewById<Button>(R.id.alreadyHaveAnAccountBtn)
+        // Optional: Find ProgressBar by ID
+        // progressBar = findViewById(R.id.your_progress_bar_id_in_register_layout)
 
-        // Remove SharedPreferences related code
-        // val sharedPreferences: SharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
-        // val editor = sharedPreferences.edit()
 
         createAccBtn.setOnClickListener {
             val email = emailEditText.text.toString().trim()
-            val username = usernameEditText.text.toString().trim() // We might store this elsewhere later (Firestore/Realtime DB)
+            val username = usernameEditText.text.toString().trim() // Get username
             val password = passwordEditText.text.toString()
             val confirmPassword = confirmPasswordEditText.text.toString()
 
             // --- Validation ---
-            if (email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                Toast.makeText(this, "Please enter a valid email address.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            // Username validation (optional, as it's not used for login directly with Firebase Auth)
-            if (username.length < 3 || username.length > 15) {
-                Toast.makeText(this, "Username must be 3-15 characters long.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            // Firebase Auth enforces minimum password length (usually 6) automatically, but client-side check is good UX
-            if (password.length < 6 || password.length > 20) { // Keep your upper limit if desired
-                Toast.makeText(this, "Password must be at least 6 characters long.", Toast.LENGTH_SHORT).show() // Adjusted message
-                return@setOnClickListener
-            }
-            if (password != confirmPassword) {
-                Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            if (!validateInput(email, username, password, confirmPassword)) {
+                return@setOnClickListener // Stop if validation fails
             }
             // --- End Validation ---
 
-            // showProgressDialog() // Optional: Show loading indicator
+            // Show progress indicator (optional)
+            // progressBar.visibility = View.VISIBLE
+            createAccBtn.isEnabled = false // Disable button during process
 
             // --- Create user with Firebase Auth ---
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
-                    // hideProgressDialog() // Optional: Hide loading indicator
                     if (task.isSuccessful) {
-                        // Sign in success
+                        // --- Auth User Created Successfully ---
                         Log.d(TAG, "createUserWithEmail:success")
                         val user = auth.currentUser
-                        Toast.makeText(this, "Account created successfully.", Toast.LENGTH_SHORT).show()
+                        val userId = user?.uid
 
-                        // Optional: Save username to Firestore or Realtime Database associated with user.uid here
-                        // Example: saveUsernameToDatabase(user?.uid, username)
+                        if (userId == null) {
+                            // Should not happen if task is successful, but handle defensively
+                            Log.e(TAG, "User created but UID is null!")
+                            Toast.makeText(baseContext, "Registration failed: Could not get user ID.", Toast.LENGTH_LONG).show()
+                            // Hide progress indicator (optional)
+                            // progressBar.visibility = View.GONE
+                            createAccBtn.isEnabled = true
+                            return@addOnCompleteListener
+                        }
 
-                        // Navigate to Login Activity (or directly to LandingActivity if desired)
-                        auth.signOut();
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish() // Finish RegisterActivity
+                        // --- 1. Update Firebase Auth Profile (Set displayName) ---
+                        updateUserProfile(username) { profileUpdateSuccess ->
+                            if (!profileUpdateSuccess) {
+                                // Log failure but continue to save to Firestore anyway
+                                Log.w(TAG, "Failed to update Auth profile displayName, but proceeding.")
+                            }
+
+                            // --- 2. Save User Data to Firestore ---
+                            saveUserDataToFirestore(userId, username, email) { firestoreSaveSuccess ->
+                                // Hide progress indicator (optional)
+                                // progressBar.visibility = View.GONE
+                                createAccBtn.isEnabled = true // Re-enable button
+
+                                if (firestoreSaveSuccess) {
+                                    Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show()
+                                    // Navigate directly to LandingActivity (recommended)
+                                    navigateToLandingActivity()
+                                } else {
+                                    // Firestore save failed, Auth user exists. Inform user.
+                                    // More complex recovery could involve deleting the auth user.
+                                    Toast.makeText(baseContext, "Account created, but failed to save details.", Toast.LENGTH_LONG).show()
+                                    // Decide where to navigate - maybe back to Login?
+                                    navigateToLoginActivity()
+                                }
+                            }
+                        }
+
                     } else {
-                        // If sign up fails, display a message to the user.
+                        // --- Auth User Creation Failed ---
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}",
-                            Toast.LENGTH_LONG).show() // Show specific Firebase error
+                        Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                        // Hide progress indicator (optional)
+                        // progressBar.visibility = View.GONE
+                        createAccBtn.isEnabled = true // Re-enable button
                     }
                 }
         }
 
         alrHaveAccBtn.setOnClickListener {
-            // Go back to Login Activity
-            // Using finish() is generally better than starting a new LoginActivity instance if it's already on the stack
-            finish()
-            // If LoginActivity might not be on the stack:
-            // val intent = Intent(this, LoginActivity::class.java)
-            // intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP // Clears activities on top
-            // startActivity(intent)
+            finish() // Just close this activity to go back
         }
     }
 
-    // Example function placeholder (implement using Firestore or Realtime DB)
-    // private fun saveUsernameToDatabase(userId: String?, username: String) {
-    //     if (userId == null) return
-    //     // Get Firestore instance
-    //     // Create a user document/entry with the username under the userId
-    //     Log.d(TAG, "Simulating saving username '$username' for user ID '$userId'")
-    // }
+    // --- Helper function for Input Validation ---
+    private fun validateInput(email: String, username: String, pass: String, confirmPass: String): Boolean {
+        if (email.isEmpty() || username.isEmpty() || pass.isEmpty() || confirmPass.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Please enter a valid email address.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (username.length < 3 || username.length > 15) {
+            Toast.makeText(this, "Username must be 3-15 characters long.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (pass.length < 6 || pass.length > 20) {
+            Toast.makeText(this, "Password must be 6-20 characters long.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (pass != confirmPass) {
+            Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
+    }
+
+    // --- Helper function to update Firebase Auth Profile ---
+    private fun updateUserProfile(username: String, callback: (Boolean) -> Unit) {
+        val user = auth.currentUser
+        val profileUpdates = UserProfileChangeRequest.Builder()
+            .setDisplayName(username)
+            // .setPhotoUri(...) // Can add profile picture later
+            .build()
+
+        user?.updateProfile(profileUpdates)
+            ?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "User profile display name updated successfully.")
+                    callback(true)
+                } else {
+                    Log.w(TAG, "Failed to update user profile display name.", task.exception)
+                    callback(false) // Indicate failure, but we might continue anyway
+                }
+            } ?: callback(false) // If user is somehow null here, treat as failure
+    }
+
+
+    // --- Helper function to save data to Firestore ---
+    private fun saveUserDataToFirestore(userId: String, username: String, email: String?, callback: (Boolean) -> Unit) {
+        // Create a data structure for the user document
+        val userData = hashMapOf(
+            "username" to username,
+            "email" to email, // Store email as well
+            "createdAt" to FieldValue.serverTimestamp() // Record registration time
+            // Add any other default fields you want for a user
+        )
+
+        // Save to 'users' collection with the document ID being the user's UID
+        db.collection("users").document(userId)
+            .set(userData)
+            .addOnSuccessListener {
+                Log.d(TAG, "User data successfully written to Firestore for UID: $userId")
+                callback(true) // Signal success
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error writing user data to Firestore for UID: $userId", e)
+                callback(false) // Signal failure
+            }
+    }
+
+    // --- Helper function for Navigation to Landing Activity ---
+    private fun navigateToLandingActivity() {
+        val intent = Intent(this, LandingActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish() // Finish RegisterActivity
+    }
+
+    // --- Helper function for Navigation to Login Activity (Fallback on error) ---
+    private fun navigateToLoginActivity() {
+        auth.signOut() // Sign out if Firestore save failed but auth succeeded
+        val intent = Intent(this, LoginActivity::class.java)
+        // Optional: Clear top if you want login to be the only thing left
+        // intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
+        finish() // Finish RegisterActivity
+    }
 }

@@ -48,13 +48,24 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.activity)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.volley)
     implementation(libs.gson)
-    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0")) // <-- UPDATE THIS
     implementation("com.google.firebase:firebase-analytics")
-    implementation ("com.google.firebase:firebase-auth-ktx") // Firebase Authentication Kotlin extensions
-    implementation ("com.google.android.material:material:1.11.0") // Or your required version for Material components
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-storage-ktx") // No version
+    implementation ("com.google.android.material:material:1.11.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation("com.cloudinary:cloudinary-android:2.+") // Use the latest version
+    implementation("com.cloudinary:cloudinary-core:1.+")    // Core library is also often needed
+
+
 }
