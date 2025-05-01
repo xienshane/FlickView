@@ -1,64 +1,111 @@
 package com.android.flickview.activities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
+// Remove SharedPreferences import if no longer needed for other things
+// import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity // Change to AppCompatActivity for better compatibility
 import com.android.flickview.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-class LoginActivity : Activity() {
+// Change Activity to AppCompatActivity for better support and lifecycle management
+class LoginActivity : AppCompatActivity() {
 
-    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var auth: FirebaseAuth
+    // private lateinit var sharedPreferences: SharedPreferences // Remove if not needed
 
+    // Define a TAG for logging
+    private val TAG = "LoginActivity"
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        setContentView(R.layout.login) // Make sure login.xml has email instead of username field now
 
-        sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
+        // Initialize Firebase Auth
+        auth = Firebase.auth
 
-        val registerBtn = findViewById<Button>(R.id.signinButton)
+        // Remove SharedPreferences initialization if only used for login credentials
+        // sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
+
+        val emailEditText = findViewById<EditText>(R.id.email) // CHANGE ID HERE if needed
+        val passwordEditText = findViewById<EditText>(R.id.password)
+        val loginBtn = findViewById<Button>(R.id.loginButton)
+        val registerBtn = findViewById<Button>(R.id.signinButton) // This seems to be the register button?
+        val forgotPasswordText = findViewById<TextView>(R.id.forgotPassword)
+
         registerBtn.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+            // Optional: finish() if you don't want users to return here via back button
         }
 
-        val loginBtn = findViewById<Button>(R.id.loginButton)
         loginBtn.setOnClickListener {
-            val usernameEditText = findViewById<EditText>(R.id.username)
-            val passwordEditText = findViewById<EditText>(R.id.password)
-
-            val username = usernameEditText.text.toString().trim()
+            // Use email instead of username
+            val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString()
 
-            val savedUsername = sharedPreferences.getString("username", null)
-            val savedPassword = sharedPreferences.getString("password", null)
-
-            if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please fill in both fields", Toast.LENGTH_SHORT).show()
-            } else if (username.length < 3 || username.length > 15) {
-                Toast.makeText(this, "Username must be 3-15 characters long.", Toast.LENGTH_SHORT).show()
-            } else if (password.length < 6 || password.length > 20) {
-                Toast.makeText(this, "Password must be 6-20 characters long.", Toast.LENGTH_SHORT).show()
-            } else {
-                if (username == savedUsername && password == savedPassword) {
-                    val intent = Intent(this, LandingActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
-                }
+            // Basic validation (Firebase handles more complex checks)
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener // Stop execution here
             }
+
+            // Add a simple progress indicator (optional but recommended)
+            // showProgressDialog() // You would need to implement this
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    // hideProgressDialog() // Hide progress indicator
+                    if (task.isSuccessful) {
+                        // Sign in success
+                        Log.d(TAG, "signInWithEmail:success")
+                        val user = auth.currentUser
+                        Toast.makeText(this, "Login Successful.", Toast.LENGTH_SHORT).show()
+                        // Navigate to LandingActivity
+                        val intent = Intent(this, LandingActivity::class.java)
+                        // Clear back stack so user cannot go back to Login screen
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish() // Finish LoginActivity
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}",
+                            Toast.LENGTH_LONG).show() // Show specific Firebase error
+                    }
+                }
         }
 
-        val forgotPasswordText = findViewById<TextView>(R.id.forgotPassword)
         forgotPasswordText.setOnClickListener {
-            Toast.makeText(this, "Forgot Password clicked", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    // --- Check if user is already signed in ---
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            Log.d(TAG, "User already logged in: ${currentUser.email}")
+            // User is signed in, navigate directly to LandingActivity
+            val intent = Intent(this, LandingActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish() // Prevent going back to Login
+        } else {
+            Log.d(TAG, "No user logged in.")
         }
     }
 }

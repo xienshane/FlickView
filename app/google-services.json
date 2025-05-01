@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "763594595455",
+    "project_id": "flickview-530fe",
+    "storage_bucket": "flickview-530fe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763594595455:android:d3a955ef08e7a388cd734a",
+        "android_client_info": {
+          "package_name": "com.android.flickview"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR8MieZ5UXXuol4DPsMLkuxkaxDX8L1QY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
