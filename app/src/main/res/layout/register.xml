@@ -96,23 +96,23 @@
                 android:drawablePadding="8dp"/>
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:text="CREATE ACCOUNT"
                 android:textStyle="bold"
                 android:id="@+id/createAccountBtn"
                 android:textSize="18sp"
-                android:background="@drawable/custom_edittext"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
+                app:cornerRadius = "30dp"
                 android:backgroundTint="@color/purple"
-                app:cornerRadius = "20dp"
                 android:elevation="10dp"/>
             <Button
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:id="@+id/alreadyHaveAnAccountBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cornerRadius = "30dp"
+                android:elevation="30dp"
                 android:text="already have an account?"
-                android:background="@drawable/custom_edittext"
                 android:textColor="#000058"
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="#FFFFFF"/>

@@ -109,6 +109,10 @@
             android:name=".activities.HomeFragment"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
+        <activity
+            android:name=".activities.ActivityCenterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Flickview" />
     </application>
 
 </manifest>

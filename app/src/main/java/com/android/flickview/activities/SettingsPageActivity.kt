@@ -26,14 +26,14 @@ class SettingsPageActivity : AppCompatActivity() {
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         rootView.startAnimation(fadeIn)
 
-        val buttonAppLang: LinearLayout = findViewById(R.id.app)
-        buttonAppLang.setOnClickListener {
-            Log.e("Developer", "Button is clicked")
-            Toast.makeText(this, "App Language page is clicked", Toast.LENGTH_LONG).show()
-
-            val intent = Intent(this, AppLanguageListViewActivity::class.java)
-            startActivity(intent)
-        }
+//        val buttonAppLang: LinearLayout = findViewById(R.id.app)
+//        buttonAppLang.setOnClickListener {
+//            Log.e("Developer", "Button is clicked")
+//            Toast.makeText(this, "App Language page is clicked", Toast.LENGTH_LONG).show()
+//
+//            val intent = Intent(this, AppLanguageListViewActivity::class.java)
+//            startActivity(intent)
+//        }
 
         val buttonDeveloper: LinearLayout = findViewById(R.id.developer)
         buttonDeveloper.setOnClickListener {
@@ -67,14 +67,14 @@ class SettingsPageActivity : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 
-        val buttonDisplay: LinearLayout = findViewById(R.id.button_display)
-        buttonDisplay.setOnClickListener {
-            Log.d("Display", "Display button clicked");
-            Toast.makeText(this, "Display settings clicked", Toast.LENGTH_SHORT).show();
-
-             val intent = Intent(this, DisplayActivity::class.java)
-             startActivity(intent)
-        }
+//        val buttonDisplay: LinearLayout = findViewById(R.id.button_display)
+//        buttonDisplay.setOnClickListener {
+//            Log.d("Display", "Display button clicked");
+//            Toast.makeText(this, "Display settings clicked", Toast.LENGTH_SHORT).show();
+//
+//             val intent = Intent(this, DisplayActivity::class.java)
+//             startActivity(intent)
+//        }
 
 //        val buttonNotifications: LinearLayout = findViewById(R.id.button_notifications)
 //        buttonNotifications.setOnClickListener {

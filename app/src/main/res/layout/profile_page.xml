@@ -87,124 +87,39 @@
 
                 <Button
                     android:id="@+id/button_edit"
-                    android:layout_width="140dp"
-                    android:layout_height="48dp"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
                     android:layout_marginEnd="12dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/purple"
+                    android:drawableStart="@drawable/ic_edit"
+                    android:backgroundTint="@color/bg"
                     android:text="Edit Profile"
+                    app:cornerRadius="30dp"
                     android:textColor="@color/white" />
 
-                <Button
-                    android:layout_width="160dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/purple"
-                    android:text="Watch History"
-                    android:textColor="@color/white" />
+<!--                <Button-->
+<!--                    android:layout_width="160dp"-->
+<!--                    android:layout_height="48dp"-->
+<!--                    android:background="@drawable/rounded_button"-->
+<!--                    android:backgroundTint="@color/purple"-->
+<!--                    android:text="Watch History"-->
+<!--                    android:textColor="@color/white" />-->
             </LinearLayout>
 
-            <!-- Stats Section -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="3">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/stat_card_backgroud"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Related Movies"
-                        android:textColor="#CCCCCC"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="40"
-                        android:textColor="@color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/stat_card_backgroud"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Liked Movies"
-                        android:textColor="#CCCCCC"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12"
-                        android:textColor="@color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/stat_card_backgroud"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Average Ratings"
-                        android:textColor="#CCCCCC"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="4.5"
-                        android:textColor="@color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </LinearLayout>
 
             <!-- Action Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <Button
+                    android:id="@+id/ActivityCenter"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp"
-                    android:background="@drawable/rounded_button"
+                    android:layout_height="65dp"
+                    app:cornerRadius = "30dp"
+                    android:layout_marginVertical="5dp"
                     android:backgroundTint="@color/purple"
                     android:text="Activity Center"
                     android:textColor="@color/white"
@@ -214,9 +129,9 @@
                 <Button
                     android:id="@+id/button_settings"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp"
-                    android:background="@drawable/rounded_button"
+                    android:layout_height="65dp"
+                    app:cornerRadius = "30dp"
+                    android:layout_marginVertical="5dp"
                     android:backgroundTint="@color/purple"
                     android:text="Settings"
                     android:textColor="@color/white"
@@ -226,9 +141,10 @@
                 <Button
                     android:id="@+id/button_logout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp"
-                    android:background="@drawable/red_rounded_button"
+                    android:layout_height="65dp"
+                    app:cornerRadius = "30dp"
+                    android:backgroundTint="#E43535"
+                    android:layout_marginVertical="5dp"
                     android:text="Log Out"
                     android:textColor="@color/white"
                     android:textSize="18sp"

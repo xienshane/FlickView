@@ -40,47 +40,47 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- App Language -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#FFFFFF"
-            app:strokeWidth="1dp">
+<!--        &lt;!&ndash; App Language &ndash;&gt;-->
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            app:cardCornerRadius="16dp"-->
+<!--            app:cardElevation="6dp"-->
+<!--            app:strokeColor="#FFFFFF"-->
+<!--            app:strokeWidth="1dp">-->
 
-            <LinearLayout
-                android:id="@+id/app"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="16dp"
-                android:background="@drawable/cat_background">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/app"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:padding="16dp"-->
+<!--                android:background="@drawable/cat_background">-->
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/language_svgrepo_com__1_"
-                    android:background="@drawable/icon_circle"
-                    android:padding="8dp"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:src="@drawable/language_svgrepo_com__1_"-->
+<!--                    android:background="@drawable/icon_circle"-->
+<!--                    android:padding=" 8dp"/>-->
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingStart="16dp"
-                    android:text="App Language"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:paddingStart="16dp"-->
+<!--                    android:text="App Language"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textSize="16sp" />-->
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/right"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+<!--                <ImageView-->
+<!--                    android:layout_width="24dp"-->
+<!--                    android:layout_height="24dp"-->
+<!--                    android:src="@drawable/right"/>-->
+<!--            </LinearLayout>-->
+<!--        </com.google.android.material.card.MaterialCardView>-->
 
 <!--        &lt;!&ndash; Region &ndash;&gt;-->
 <!--        <com.google.android.material.card.MaterialCardView-->
@@ -124,48 +124,48 @@
 <!--            </LinearLayout>-->
 <!--        </com.google.android.material.card.MaterialCardView>-->
 
-        <!-- Display -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#FFFFFF"
-            app:strokeWidth="1dp">
+<!--        &lt;!&ndash; Display &ndash;&gt;-->
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            app:cardCornerRadius="16dp"-->
+<!--            app:cardElevation="6dp"-->
+<!--            app:strokeColor="#FFFFFF"-->
+<!--            app:strokeWidth="1dp">-->
 
-            <LinearLayout
-                android:id="@+id/button_display"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="16dp"
-                android:background="@drawable/dev_shape2">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/button_display"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:padding="16dp"-->
+<!--                android:background="@drawable/dev_shape2">-->
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/display_svgrepo_com"
-                    android:background="@drawable/icon_circle"
-                    android:padding="8dp"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:src="@drawable/display_svgrepo_com"-->
+<!--                    android:background="@drawable/icon_circle"-->
+<!--                    android:padding="8dp"/>-->
 
-                <TextView
+<!--                <TextView-->
 
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingStart="16dp"
-                    android:text="Display"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:paddingStart="16dp"-->
+<!--                    android:text="Display"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textSize="16sp" />-->
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/right"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+<!--                <ImageView-->
+<!--                    android:layout_width="24dp"-->
+<!--                    android:layout_height="24dp"-->
+<!--                    android:src="@drawable/right"/>-->
+<!--            </LinearLayout>-->
+<!--        </com.google.android.material.card.MaterialCardView>-->
 
 <!--        &lt;!&ndash; Notifications &ndash;&gt;-->
 <!--        <com.google.android.material.card.MaterialCardView-->

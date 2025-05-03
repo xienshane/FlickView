@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.android.flickview" />
+                  <option name="mobileSdkAppId" value="1:763594595455:android:d3a955ef08e7a388cd734a" />
+                  <option name="projectId" value="flickview-530fe" />
+                  <option name="projectNumber" value="763594595455" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
