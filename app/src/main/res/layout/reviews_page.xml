@@ -12,8 +12,9 @@
         android:id="@+id/reviewToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorHelper"
         app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/baseline_arrow_back_24"  /> <!-- Make sure you have a back icon drawable -->
 
     <ScrollView
@@ -107,6 +108,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/purple"
+                app:cornerRadius="30dp"
                 android:text="Submit"
                 android:textColor="@android:color/white" />
 
