@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/etSearchMovie"
+                android:id="@+id/etSearchMovies"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="16dp"
@@ -35,6 +35,13 @@
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/white"
                 android:autofillHints="Popular Now" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/searchResultsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:padding="12dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

@@ -27,6 +27,10 @@ import com.android.volley.toolbox.StringRequest
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+
 
 
 class LandingActivity : Activity() {
@@ -42,6 +46,9 @@ class LandingActivity : Activity() {
     private lateinit var loading3: ProgressBar
     private lateinit var viewPager2: ViewPager2
     private val slideHandler = Handler(Looper.getMainLooper())
+    private lateinit var searchResultsRecyclerView: RecyclerView
+    private lateinit var searchAdapter: FilmListAdapter
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -178,6 +185,60 @@ class LandingActivity : Activity() {
         loading1 = findViewById(R.id.progressBar1)
         loading2 = findViewById(R.id.progressBar2)
         loading3 = findViewById(R.id.progressBar3)
+        searchResultsRecyclerView = findViewById(R.id.searchResultsRecyclerView)
+        searchResultsRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        searchResultsRecyclerView.setHasFixedSize(true)
+
+
+
+        val etSearchMovies = findViewById<EditText>(R.id.etSearchMovies)
+        etSearchMovies.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val query = s.toString().trim()
+                if (query.isNotEmpty() && ::adapterBestMovies.isInitialized) {
+                    val originalAdapter = adapterBestMovies as FilmListAdapter
+                    searchAdapter = FilmListAdapter(originalAdapter.originalItems)
+                    searchAdapter.filter.filter(query)
+
+                    // Show only search results
+                    searchResultsRecyclerView.adapter = searchAdapter
+                    searchResultsRecyclerView.visibility = View.VISIBLE
+
+                    recycleViewBestMovies.visibility = View.GONE
+                    recycleViewUpcoming.visibility = View.GONE
+                    recycleViewCategory.visibility = View.GONE
+                    viewPager2.visibility = View.GONE
+
+                        val query = s?.toString() ?: ""
+                        if (query.isNotEmpty()) {
+                            filterMovies(query)
+                            fadeView(searchResultsRecyclerView, true)
+                            fadeView(recycleViewBestMovies, false)
+                            fadeView(recycleViewUpcoming, false)
+                            fadeView(recycleViewCategory, false)
+                        } else {
+                            fadeView(searchResultsRecyclerView, false)
+                            fadeView(recycleViewBestMovies, true)
+                            fadeView(recycleViewUpcoming, true)
+                            fadeView(recycleViewCategory, true)
+                        }
+
+
+                } else {
+                    // Restore original layout
+                    searchResultsRecyclerView.visibility = View.GONE
+                    recycleViewBestMovies.visibility = View.VISIBLE
+                    recycleViewUpcoming.visibility = View.VISIBLE
+                    recycleViewCategory.visibility = View.VISIBLE
+                    viewPager2.visibility = View.VISIBLE
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView3)
         bottomNavigationView.selectedItemId = R.id.home
@@ -206,5 +267,26 @@ class LandingActivity : Activity() {
         }
 
 
+    }
+
+    private fun fadeView(view: View, show: Boolean) {
+        val duration = 300L
+        if (show) {
+            view.alpha = 0f
+            view.visibility = View.VISIBLE
+            view.animate().alpha(1f).setDuration(duration).start()
+        } else {
+            view.animate().alpha(0f).setDuration(duration).withEndAction {
+                view.visibility = View.GONE
+            }.start()
+        }
+    }
+
+
+    private fun filterMovies(query: String) {
+        if (::adapterBestMovies.isInitialized && adapterBestMovies is FilmListAdapter) {
+            val filmAdapter = adapterBestMovies as FilmListAdapter
+            filmAdapter.filter.filter(query)
+        }
     }
 }
