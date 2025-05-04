@@ -85,7 +85,7 @@
                     android:textSize="14sp"/>
 
                 <TextView
-                    android:id="@+id/stat_related_movies"
+                    android:id="@+id/stat_rated_movies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="—"
@@ -138,7 +138,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Written Ratings"
+                    android:text="Average Ratings"
                     android:textColor="#BBBBBB"
                     android:textSize="14sp" />
 
@@ -146,7 +146,7 @@
                     android:id="@+id/stat_avg_ratings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="—"
+                    android:text="0.0"
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     android:textStyle="bold"

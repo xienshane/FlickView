@@ -148,4 +148,8 @@ object FavoritesHelper { // Assuming it's an object (singleton)
         // Log.d("FavoritesHelper", "Retrieved ${favoriteItems.size} favorite items.") // Optional logging
         return favoriteItems
     }
+
+    fun getFavoriteCount(context: Context): Int {
+        return getAllFavoriteItems(context).size
+    }
 }

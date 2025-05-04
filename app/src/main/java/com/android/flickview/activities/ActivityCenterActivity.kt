@@ -7,7 +7,9 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.flickview.R
@@ -24,10 +26,22 @@ import java.util.*
 class ActivityCenterActivity : AppCompatActivity() {
 
     private lateinit var barChart: BarChart
+    private lateinit var statRatedMovies: TextView
+    private lateinit var statLikedMovies: TextView
+    private lateinit var statAverageRatings: TextView
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_center)
+
+        statRatedMovies = findViewById(R.id.stat_rated_movies)
+        statLikedMovies = findViewById(R.id.stat_liked_movies)
+        statAverageRatings = findViewById(R.id.stat_avg_ratings)
+//
+//        val favoriteCount = FavoritesHelper.getFavoriteCount(this)
+//        statLikedMovies.text = favoriteCount.toString()
 
         barChart = findViewById(R.id.barChart)
         val buttonBack: ImageView = findViewById(R.id.button_back)
@@ -41,6 +55,14 @@ class ActivityCenterActivity : AppCompatActivity() {
         } else {
             setupBarChart()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Refresh the favorite count every time the screen becomes visible
+        val favoriteCount = FavoritesHelper.getFavoriteCount(this)
+        statLikedMovies.text = favoriteCount.toString()
     }
 
     private fun hasUsageAccessPermission(): Boolean {

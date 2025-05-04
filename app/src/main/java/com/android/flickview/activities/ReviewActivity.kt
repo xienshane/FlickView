@@ -233,5 +233,7 @@ class ReviewActivity : AppCompatActivity() {
             }
 
     }
+
+
     // ... rest of the functions (submitReview, loadReviews) will go here ...
 }
