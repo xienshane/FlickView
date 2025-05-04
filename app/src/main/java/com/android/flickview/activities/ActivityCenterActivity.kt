@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +35,9 @@ class ActivityCenterActivity : AppCompatActivity() {
     private lateinit var statLikedMovies: TextView
     private lateinit var statAverageRatings: TextView
 
+    private lateinit var topRatedContainer: LinearLayout
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +47,8 @@ class ActivityCenterActivity : AppCompatActivity() {
         statRatedMovies = findViewById(R.id.stat_rated_movies)
         statLikedMovies = findViewById(R.id.stat_liked_movies)
         statAverageRatings = findViewById(R.id.stat_avg_ratings)
+        topRatedContainer = findViewById(R.id.top_rated_container)
+
 //
 //        val favoriteCount = FavoritesHelper.getFavoriteCount(this)
 //        statLikedMovies.text = favoriteCount.toString()
@@ -90,12 +96,26 @@ class ActivityCenterActivity : AppCompatActivity() {
 
                 statRatedMovies.text = ratedCount.toString()
                 statAverageRatings.text = String.format("%.1f", averageRating)
+
+                // Top 3 highest-rated reviews
+                val topReviews = reviews.sortedByDescending { it.rating }.take(3)
+                topRatedContainer.removeAllViews() // Clear old views
+
+                for (review in topReviews) {
+                    val textView = TextView(this)
+                    textView.text = "⭐ ${review.rating} – ${review.reviewText.take(30)}..."
+                    textView.setTextColor(getColor(R.color.white))
+                    textView.textSize = 16f
+                    textView.setPadding(0, 8, 0, 8)
+                    topRatedContainer.addView(textView)
+                }
             }
             .addOnFailureListener { e ->
                 Log.e("ActivityCenter", "Failed to fetch reviews", e)
                 Toast.makeText(this, "Error loading stats", Toast.LENGTH_SHORT).show()
             }
     }
+
 
 
     private fun hasUsageAccessPermission(): Boolean {
