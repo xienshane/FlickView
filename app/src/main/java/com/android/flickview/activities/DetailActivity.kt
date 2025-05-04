@@ -336,7 +336,7 @@ class DetailActivity : AppCompatActivity() {
         // - baseline_favorite_border_24.xml (empty heart border)
         // You can get standard Material Icons from Android Studio's Vector Asset tool.
         if (isFavorite) {
-            favoritesButton.setImageResource(R.drawable.baseline_favorite_border_24) // Filled heart
+            favoritesButton.setImageResource(R.drawable.baseline_favorite_25) // Filled heart
             // Add content description for accessibility
             //favoritesButton.contentDescription = getString(R.string.baseline_favorite_border_24)
         } else {

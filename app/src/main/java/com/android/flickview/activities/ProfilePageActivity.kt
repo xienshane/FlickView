@@ -64,7 +64,7 @@ class ProfilePageActivity : AppCompatActivity() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView3)
 
         // Start animation
-        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         rootView.startAnimation(fadeIn)
 
         // --- Load and Display Profile Info ---
@@ -98,11 +98,13 @@ class ProfilePageActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> {
                     startActivityWithReorder(LandingActivity::class.java)
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     true
                 }
                 R.id.profile -> true // Already here
                 R.id.favorites -> {
                     startActivityWithReorder(FavoritesActivity::class.java)
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     true
                 }
                 else -> false

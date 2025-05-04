@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bg">
+    android:background="@android:color/transparent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,8 @@
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/bg">
 
         <ImageButton
             android:id="@+id/button_back"
@@ -44,6 +45,7 @@
 
         <!-- List of Favorites (Takes full space within FrameLayout) -->
         <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/bg"
             android:id="@+id/recycler_view_favorites"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -52,6 +54,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:clipToPadding="false"
+
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/viewholder_favorite_item"/>
 

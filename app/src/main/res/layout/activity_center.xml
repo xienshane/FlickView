@@ -50,12 +50,12 @@
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="230dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
             android:background="@drawable/stat_card_backgroud"
             android:elevation="8dp"
-            android:padding="12dp" />
+            android:padding="20dp" />
 
         <!-- Stats Cards -->
         <LinearLayout

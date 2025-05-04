@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    card_view:cardCornerRadius="16dp"
+    card_view:cardCornerRadius="30dp"
     card_view:cardElevation="8dp"
     android:background="@android:color/transparent">
 
@@ -23,7 +23,7 @@
             android:contentDescription="Poster" />
 
         <TextView
-            android:id="@+id/txtTitle"
+            android:id="@+id/titleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
