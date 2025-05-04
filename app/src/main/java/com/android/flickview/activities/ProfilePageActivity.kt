@@ -57,7 +57,7 @@ class ProfilePageActivity : AppCompatActivity() {
         // --- Find Other Views ---
         val rootView = findViewById<View>(android.R.id.content)
         val buttonSettings: Button = findViewById(R.id.button_settings)
-        val ActivityCenter: Button = findViewById(R.id.ActivityCenter)
+        val activityCenter: Button = findViewById(R.id.ActivityCenter)
         val buttonBack: ImageView = findViewById(R.id.button_back)
         val buttonLogout: Button = findViewById(R.id.button_logout)
         val buttonEditProf: Button = findViewById(R.id.button_edit)
@@ -76,7 +76,7 @@ class ProfilePageActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsPageActivity::class.java))
         }
 
-        ActivityCenter.setOnClickListener {
+        activityCenter.setOnClickListener {
             startActivity(Intent(this, ActivityCenterActivity::class.java))
         }
 
