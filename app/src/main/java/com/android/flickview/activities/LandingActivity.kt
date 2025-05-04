@@ -28,6 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+
 class LandingActivity : Activity() {
     private lateinit var adapterBestMovies: RecyclerView.Adapter<*>
     private lateinit var adapterUpcoming: RecyclerView.Adapter<*>
@@ -179,6 +180,7 @@ class LandingActivity : Activity() {
         loading3 = findViewById(R.id.progressBar3)
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView3)
+        bottomNavigationView.selectedItemId = R.id.home
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {

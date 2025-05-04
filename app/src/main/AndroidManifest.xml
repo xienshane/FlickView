@@ -38,6 +38,7 @@
             android:theme="@style/Theme.Flickview" />
         <activity
             android:name=".activities.LandingActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false"
             android:theme="@style/Theme.Flickview" />
         <activity

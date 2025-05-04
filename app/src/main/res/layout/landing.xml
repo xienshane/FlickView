@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/etSearchMovie"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="16dp"
@@ -29,7 +29,7 @@
                 android:drawableEnd="@drawable/mic"
                 android:drawablePadding="8dp"
                 android:ems="10"
-                android:hint="Search_movies"
+                android:hint="Search movies..."
                 android:inputType="text"
                 android:padding="12dp"
                 android:textColor="@android:color/white"

@@ -96,14 +96,15 @@ class ProfilePageActivity : AppCompatActivity() {
         bottomNavigationView.selectedItemId = R.id.profile
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.profile -> true // Already here
                 R.id.home -> {
-                    startActivityWithReorder(LandingActivity::class.java)
+                    startActivity(Intent(this, LandingActivity::class.java))
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     true
                 }
-                R.id.profile -> true // Already here
                 R.id.favorites -> {
-                    startActivityWithReorder(FavoritesActivity::class.java)
+                    // Navigate to FavoritesActivity
+                    startActivity(Intent(this, FavoritesActivity::class.java))
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     true
                 }

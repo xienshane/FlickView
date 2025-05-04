@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/transparent">
+    android:background="@color/bg">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
         android:paddingBottom="8dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@color/bg">
+        android:background="@android:color/transparent">
 
         <ImageButton
             android:id="@+id/button_back"
@@ -41,11 +42,11 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@android:color/transparent"
         android:layout_weight="1"> <!-- This FrameLayout takes up remaining space -->
 
         <!-- List of Favorites (Takes full space within FrameLayout) -->
         <androidx.recyclerview.widget.RecyclerView
-            android:background="@color/bg"
             android:id="@+id/recycler_view_favorites"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -54,7 +55,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:clipToPadding="false"
-
+            android:background="@android:color/transparent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/viewholder_favorite_item"/>
 
@@ -64,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
         android:text="No favorites added yet!"
-        android:textColor="?android:attr/textColorSecondary"
+        android:textColor="#FFC107"
         android:textSize="18sp"
         android:visibility="gone"
         tools:visibility="visible"/>

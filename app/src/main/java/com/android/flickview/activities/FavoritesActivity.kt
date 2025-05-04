@@ -24,6 +24,7 @@ class FavoritesActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var favoritesAdapter: FavoritesAdapter
+
     // This list holds the data displayed by the adapter. Modifying it requires notifying the adapter.
     private var favoritesList: MutableList<FavoriteItem> = mutableListOf()
     private lateinit var emptyStateTextView: TextView // To show when list is empty
@@ -41,12 +42,16 @@ class FavoritesActivity : AppCompatActivity() {
         buttonBack = findViewById(R.id.button_back) // Ensure this ID exists in favorites.xml
         recyclerView = findViewById(R.id.recycler_view_favorites) // Ensure this ID exists
         // **FIX 2: Uncomment the initialization of emptyStateTextView**
-        emptyStateTextView = findViewById(R.id.empty_state_text) // Ensure this ID exists in favorites.xml
+        emptyStateTextView =
+            findViewById(R.id.empty_state_text) // Ensure this ID exists in favorites.xml
         bottomNavigationView = findViewById(R.id.bottomNavigationView3) // Ensure this ID exists
 
         // Verify that the TextView was found (optional debug check)
         if (emptyStateTextView == null) {
-            Log.e(TAG, "Error: Could not find TextView with ID R.id.empty_state_text in layout R.layout.favorites")
+            Log.e(
+                TAG,
+                "Error: Could not find TextView with ID R.id.empty_state_text in layout R.layout.favorites"
+            )
             // Handle this error appropriately, maybe show a default message or crash gracefully.
             // For now, we'll let it potentially crash later if accessed, but the log helps debug.
         }
@@ -63,7 +68,8 @@ class FavoritesActivity : AppCompatActivity() {
         // RecyclerView Setup
         recyclerView.layoutManager = LinearLayoutManager(this)
         // Initialize adapter with the mutable list. Changes to favoritesList need notifyDataSetChanged().
-        favoritesAdapter = FavoritesAdapter(favoritesList) // Assuming FavoritesAdapter constructor takes MutableList<FavoriteItem>
+        favoritesAdapter =
+            FavoritesAdapter(favoritesList) // Assuming FavoritesAdapter constructor takes MutableList<FavoriteItem>
         recyclerView.adapter = favoritesAdapter
         Log.d(TAG, "RecyclerView and Adapter initialized.")
 
@@ -110,36 +116,36 @@ class FavoritesActivity : AppCompatActivity() {
         // Ensure ProfilePageActivity and LandingActivity exist in the correct package
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> {
-                    Log.d(TAG, "BottomNav: Home selected.")
-                    // Navigate back to LandingActivity cleanly
-                    val intent = Intent(this, LandingActivity::class.java)
-                    // Clear activity stack above LandingActivity and bring it to front
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                    startActivity(intent)
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) // Optional animation
+                R.id.favorites -> {
                     true // Consume the event
+                }
+                R.id.home -> {
+                    startActivity(Intent(this, LandingActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    true
                 }
                 R.id.profile -> {
-                    Log.d(TAG, "BottomNav: Profile selected.")
+                    // Navigate to ProfilePageActivity
                     startActivity(Intent(this, ProfilePageActivity::class.java))
-                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) // Optional animation
-                    // Decide if you want to finish FavoritesActivity when going to Profile
-                    // finish() // Uncomment if you want Favorites to close when going to Profile
-                    true // Consume the event
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    true
                 }
-                R.id.favorites -> {
-                    Log.d(TAG, "BottomNav: Favorites selected (already here).")
-                    // No action needed, already on this screen
-                    true // Consume the event
-                }
+
+
+
                 else -> {
-                    Log.w(TAG, "BottomNav: Unknown item selected with ID: ${item.itemId}")
                     false // Do not consume the event for unknown items
                 }
             }
         }
         Log.d(TAG, "Bottom Navigation setup complete.")
+    }
+
+
+    private fun startActivityWithReorder(activityClass: Class<*>) {
+        val intent = Intent(this, activityClass)
+        intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+        startActivity(intent)
     }
 }
 

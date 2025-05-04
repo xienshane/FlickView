@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/loginbg"
+    android:background="@color/bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -90,7 +90,7 @@
                     android:layout_width="200dp"
                     android:layout_height="60dp"
                     android:drawableEnd="@drawable/ic_edit"
-                    android:backgroundTint="@color/bg"
+                    android:backgroundTint="#6AA5A299"
                     android:text="Edit Profile"
                     app:cornerRadius="30dp"
                     android:textColor="@color/white" />
