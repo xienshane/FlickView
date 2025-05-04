@@ -22,6 +22,10 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import java.text.SimpleDateFormat
 import java.util.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
+import com.android.flickview.data.Review
+
 
 class ActivityCenterActivity : AppCompatActivity() {
 
@@ -63,7 +67,36 @@ class ActivityCenterActivity : AppCompatActivity() {
         // Refresh the favorite count every time the screen becomes visible
         val favoriteCount = FavoritesHelper.getFavoriteCount(this)
         statLikedMovies.text = favoriteCount.toString()
+
+        fetchUserReviewStats()
+
     }
+
+    private fun fetchUserReviewStats() {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("reviews")
+            .whereEqualTo("userId", userId)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                val reviews = querySnapshot.toObjects(Review::class.java)
+                val ratedCount = reviews.size
+                val averageRating = if (reviews.isNotEmpty()) {
+                    reviews.map { it.rating }.average()
+                } else {
+                    0.0
+                }
+
+                statRatedMovies.text = ratedCount.toString()
+                statAverageRatings.text = String.format("%.1f", averageRating)
+            }
+            .addOnFailureListener { e ->
+                Log.e("ActivityCenter", "Failed to fetch reviews", e)
+                Toast.makeText(this, "Error loading stats", Toast.LENGTH_SHORT).show()
+            }
+    }
+
 
     private fun hasUsageAccessPermission(): Boolean {
         val appOps = getSystemService(Context.APP_OPS_SERVICE) as android.app.AppOpsManager
