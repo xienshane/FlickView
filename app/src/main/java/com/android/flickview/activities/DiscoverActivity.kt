@@ -1,5 +1,6 @@
 package com.android.flickview.activities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +14,7 @@ class DiscoverActivity : Activity() {
 
     private val CLOUDINARY_CLOUD_NAME = "dhkpgyxup" // <--- REPLACE THIS
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,6 +23,28 @@ class DiscoverActivity : Activity() {
         setContentView(R.layout.discover)
 
         val registerBtn = findViewById<Button>(R.id.getStartedBtn)
+        registerBtn.setOnHoverListener { v, event ->
+            when (event.action) {
+                android.view.MotionEvent.ACTION_HOVER_ENTER -> {
+                    val growX = android.animation.AnimatorInflater.loadAnimator(this, R.animator.button_hover_grow)
+                    val growY = android.animation.AnimatorInflater.loadAnimator(this, R.animator.button_hover_grow_y)
+                    growX.setTarget(v)
+                    growY.setTarget(v)
+                    growX.start()
+                    growY.start()
+                }
+                android.view.MotionEvent.ACTION_HOVER_EXIT -> {
+                    val shrinkX = android.animation.AnimatorInflater.loadAnimator(this, R.animator.button_hover_shrink)
+                    val shrinkY = android.animation.AnimatorInflater.loadAnimator(this, R.animator.button_hover_shrink_y)
+                    shrinkX.setTarget(v)
+                    shrinkY.setTarget(v)
+                    shrinkX.start()
+                    shrinkY.start()
+                }
+            }
+            false
+        }
+
         registerBtn.setOnClickListener{
             Log.e("Sample Project", "Button is clicked!")
 

@@ -130,9 +130,22 @@ class LandingActivity : Activity() {
 
     private fun banners() {
         val sliderItems = listOf(
-            SliderItems(R.drawable.wide1),
+            SliderItems(R.drawable.wide16),
+            SliderItems(R.drawable.wide6),
+            SliderItems(R.drawable.wide15),
+            SliderItems(R.drawable.wide4),
+            SliderItems(R.drawable.wide8),
+            SliderItems(R.drawable.wide7),
             SliderItems(R.drawable.wide2),
-            SliderItems(R.drawable.wide3)
+            SliderItems(R.drawable.wide1),
+            SliderItems(R.drawable.wide9),
+            SliderItems(R.drawable.wide10),
+            SliderItems(R.drawable.wide11),
+            SliderItems(R.drawable.wide12),
+            SliderItems(R.drawable.wide13),
+            SliderItems(R.drawable.wide14),
+            SliderItems(R.drawable.wide3),
+            SliderItems(R.drawable.wide5)
         )
 
         viewPager2.adapter = SliderAdapters(sliderItems, viewPager2)
