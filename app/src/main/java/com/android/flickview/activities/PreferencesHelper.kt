@@ -45,7 +45,6 @@ object PreferencesHelper {
         return getSharedPreferences(context).getString(KEY_THEME, "System Default") ?: "System Default"
     }
 
-    // General Font Size (as distinct from Subtitle Font Size)
     fun setFontSize(context: Context, fontSize: String) {
         getSharedPreferences(context).edit().putString(KEY_FONT_SIZE, fontSize).apply()
     }

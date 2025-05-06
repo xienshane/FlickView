@@ -20,11 +20,7 @@ import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var db: FirebaseFirestore // Declare Firestore instance
-
-    // Optional: Add ProgressBar reference
-    // private lateinit var progressBar: ProgressBar
-
+    private lateinit var db: FirebaseFirestore
     private val TAG = "RegisterActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +37,6 @@ class RegisterActivity : AppCompatActivity() {
         val confirmPasswordEditText = findViewById<EditText>(R.id.password)
         val createAccBtn = findViewById<Button>(R.id.createAccountBtn)
         val alrHaveAccBtn = findViewById<Button>(R.id.alreadyHaveAnAccountBtn)
-        // Optional: Find ProgressBar by ID
-        // progressBar = findViewById(R.id.your_progress_bar_id_in_register_layout)
-
 
         createAccBtn.setOnClickListener {
             val email = emailEditText.text.toString().trim()
@@ -57,41 +50,31 @@ class RegisterActivity : AppCompatActivity() {
             }
             // --- End Validation ---
 
-            // Show progress indicator (optional)
-            // progressBar.visibility = View.VISIBLE
-            createAccBtn.isEnabled = false // Disable button during process
+            createAccBtn.isEnabled = false
 
             // --- Create user with Firebase Auth ---
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // --- Auth User Created Successfully ---
                         Log.d(TAG, "createUserWithEmail:success")
                         val user = auth.currentUser
                         val userId = user?.uid
 
                         if (userId == null) {
-                            // Should not happen if task is successful, but handle defensively
                             Log.e(TAG, "User created but UID is null!")
                             Toast.makeText(baseContext, "Registration failed: Could not get user ID.", Toast.LENGTH_LONG).show()
-                            // Hide progress indicator (optional)
-                            // progressBar.visibility = View.GONE
                             createAccBtn.isEnabled = true
                             return@addOnCompleteListener
                         }
 
-                        // --- 1. Update Firebase Auth Profile (Set displayName) ---
                         updateUserProfile(username) { profileUpdateSuccess ->
                             if (!profileUpdateSuccess) {
                                 // Log failure but continue to save to Firestore anyway
                                 Log.w(TAG, "Failed to update Auth profile displayName, but proceeding.")
                             }
 
-                            // --- 2. Save User Data to Firestore ---
                             saveUserDataToFirestore(userId, username, email) { firestoreSaveSuccess ->
-                                // Hide progress indicator (optional)
-                                // progressBar.visibility = View.GONE
-                                createAccBtn.isEnabled = true // Re-enable button
+                                createAccBtn.isEnabled = true
 
                                 if (firestoreSaveSuccess) {
                                     Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show()
@@ -119,7 +102,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         alrHaveAccBtn.setOnClickListener {
-            finish() // Just close this activity to go back
+            finish()
         }
     }
 
@@ -171,12 +154,10 @@ class RegisterActivity : AppCompatActivity() {
 
     // --- Helper function to save data to Firestore ---
     private fun saveUserDataToFirestore(userId: String, username: String, email: String?, callback: (Boolean) -> Unit) {
-        // Create a data structure for the user document
         val userData = hashMapOf(
             "username" to username,
-            "email" to email, // Store email as well
-            "createdAt" to FieldValue.serverTimestamp() // Record registration time
-            // Add any other default fields you want for a user
+            "email" to email,
+            "createdAt" to FieldValue.serverTimestamp()
         )
 
         // Save to 'users' collection with the document ID being the user's UID

@@ -1,4 +1,4 @@
-package com.android.flickview.activities // Or your package
+package com.android.flickview.activities
 
 import android.os.Bundle
 import android.util.Log
@@ -36,11 +36,9 @@ class ReviewActivity : AppCompatActivity() {
     private lateinit var reviewsRecyclerView: RecyclerView
     private lateinit var reviewsProgressBar: ProgressBar
     private lateinit var noReviewsText: TextView
-    private lateinit var movieTitleReview: TextView // To display movie title
-    // Add other views like movie poster, average rating if needed
-    private lateinit var moviePosterReview: ImageView // To display movie title
-
-    private lateinit var reviewAdapter: ReviewAdapter // Declare the adapter
+    private lateinit var movieTitleReview: TextView
+    private lateinit var moviePosterReview: ImageView
+    private lateinit var reviewAdapter: ReviewAdapter
     private var currentMovieId: String? = null
     private var movieTitle: String? = null
     private var moviePosterUrl: String? = null
@@ -71,7 +69,6 @@ class ReviewActivity : AppCompatActivity() {
         movieTitleReview = findViewById(R.id.movieTitleReview)
         val toolbar: Toolbar = findViewById(R.id.reviewToolbar)
         moviePosterReview = findViewById(R.id.moviePosterReview)
-        // --- End View Binding ---
 
         // Setup Toolbar
         setSupportActionBar(toolbar)
@@ -100,7 +97,7 @@ class ReviewActivity : AppCompatActivity() {
         setupRecyclerView()
         setupSubmitButton()
 
-        loadReviews() // Load existing reviews when activity starts
+        loadReviews()
     }
 
     // Function to configure the RecyclerView
@@ -118,7 +115,6 @@ class ReviewActivity : AppCompatActivity() {
     }
 
     // Inside ReviewActivity class
-
     private fun submitReview() {
         val currentUser = auth.currentUser
         if (currentUser == null) {
@@ -156,18 +152,16 @@ class ReviewActivity : AppCompatActivity() {
             // Fallback to email if it's not null or blank
             currentUser.email!!
         } else {
-            // Final fallback if both are somehow unavailable (should be rare for email)
             "Anonymous"
         }
 
         // Create a Review object
         val review = Review(
-            movieId = currentMovieId!!, // We checked for null already
+            movieId = currentMovieId!!,
             userId = currentUser.uid,
             userName = userNameToStore,
             rating = rating,
             reviewText = reviewText
-            // timestamp will be set by @ServerTimestamp annotation
         )
 
         // Add the review to the 'reviews' collection in Firestore
@@ -192,7 +186,6 @@ class ReviewActivity : AppCompatActivity() {
     }
 
     // Inside ReviewActivity class
-
     private fun loadReviews() {
         if (currentMovieId == null) {
             Log.e(TAG, "Cannot load reviews, currentMovieId is null.")
@@ -203,20 +196,17 @@ class ReviewActivity : AppCompatActivity() {
         reviewsRecyclerView.visibility = View.GONE
         noReviewsText.visibility = View.GONE
 
-        // Example using addSnapshotListener (simplified)
-
         db.collection("reviews")
             .whereEqualTo("movieId", currentMovieId)
             .orderBy("timestamp", Query.Direction.DESCENDING)
             .addSnapshotListener { snapshots, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)
-                    // Handle error: show error message, hide progress bar
                     return@addSnapshotListener
                 }
 
-                reviewsProgressBar.visibility = View.GONE // Hide progress bar after first load or error
-                reviewsList.clear() // Usually simpler to clear and refill for basic updates
+                reviewsProgressBar.visibility = View.GONE
+                reviewsList.clear()
 
                 if (snapshots == null || snapshots.isEmpty) {
                     noReviewsText.visibility = View.VISIBLE
@@ -233,7 +223,4 @@ class ReviewActivity : AppCompatActivity() {
             }
 
     }
-
-
-    // ... rest of the functions (submitReview, loadReviews) will go here ...
 }

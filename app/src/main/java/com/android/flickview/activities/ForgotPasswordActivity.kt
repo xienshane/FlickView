@@ -29,7 +29,7 @@ class ForgotPasswordActivity : Activity() {
             } else {
                 // Simulate sending a reset link
                 Toast.makeText(this, "Password reset link sent to $email", Toast.LENGTH_SHORT).show()
-                finish() // Close the activity
+                finish()
             }
         }
     }

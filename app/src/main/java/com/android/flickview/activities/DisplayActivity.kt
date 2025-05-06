@@ -27,11 +27,8 @@ class DisplayActivity : AppCompatActivity() {
         buttonBack.setOnClickListener {
             finish()
         }
-
-        // Load saved preferences
         loadPreferences()
 
-        // Setup Theme Spinner
         val themeOptions = resources.getStringArray(R.array.theme_options)
         val themeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, themeOptions)
         themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -83,27 +80,18 @@ class DisplayActivity : AppCompatActivity() {
         when (PreferencesHelper.getTheme(this)) {
             "Light" -> setTheme(R.style.Theme_Flickview)
             "Dark" -> setTheme(R.style.Theme_Flickview)
-            //"System Default" -> setTheme(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            //    setTheme(androidx.appcompat.R.style.Theme_AppCompat) // System default theme
-            //} else {
-            //    setTheme(R.style.Base_Theme_FlickView) // Fallback to light theme for older versions
-            //})
         }
     }
 
     private fun applyFontSize(fontSize: String) {
         when (fontSize) {
             "Small" -> {
-                // Apply small font size
-                // This could be dynamically applied in your layout or style
                 Toast.makeText(this, "Small font size applied", Toast.LENGTH_SHORT).show()
             }
             "Default" -> {
-                // Apply default font size
                 Toast.makeText(this, "Default font size applied", Toast.LENGTH_SHORT).show()
             }
             "Large" -> {
-                // Apply large font size
                 Toast.makeText(this, "Large font size applied", Toast.LENGTH_SHORT).show()
             }
         }

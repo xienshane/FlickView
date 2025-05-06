@@ -1,25 +1,22 @@
-package com.android.flickview.activities // Or wherever FavoritesHelper is located
+package com.android.flickview.activities
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.android.flickview.Domains.FavoriteItem
 import com.google.gson.Gson
 
-object FavoritesHelper { // Assuming it's an object (singleton)
+object FavoritesHelper {
 
     private const val PREFS_NAME = "FavoritePrefs"
     private const val FAVORITE_IDS_KEY = "favorite_ids" // Key for the Set of IDs
     private const val FAVORITE_ITEM_PREFIX = "fav_item_" // Prefix for storing individual item JSON
 
-    // Use a single Gson instance
     private val GSON = Gson()
 
-    // Helper to get SharedPreferences
     private fun getPrefs(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
-    // Helper to generate the key for storing a specific item's JSON
     private fun getFavoriteItemKey(stringId: String): String {
         return FAVORITE_ITEM_PREFIX + stringId
     }
@@ -37,19 +34,15 @@ object FavoritesHelper { // Assuming it's an object (singleton)
         val prefs = getPrefs(context)
         val editor = prefs.edit()
 
-        // 1. Save the full FavoriteItem object as JSON, using the stringId in the key
         val json = GSON.toJson(item)
         val itemKey = getFavoriteItemKey(stringId)
         editor.putString(itemKey, json)
         // Log.d("FavoritesHelper", "Saving item JSON with key: $itemKey") // Optional logging
 
-        // 2. Add the stringId to the Set of favorite IDs
         val currentIds = getFavoriteIds(context) // Get mutable copy
         currentIds.add(stringId)
         editor.putStringSet(FAVORITE_IDS_KEY, currentIds)
         // Log.d("FavoritesHelper", "Added ID '$stringId' to favorites set.") // Optional logging
-
-        // 3. Apply changes
         editor.apply()
     }
 

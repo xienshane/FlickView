@@ -66,9 +66,6 @@ class ProfilePageActivity : AppCompatActivity() {
         // Start animation
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         rootView.startAnimation(fadeIn)
-
-        // --- Load and Display Profile Info ---
-        // Initial load when activity is created
         fetchAndDisplayProfileInfo()
 
         // --- Setup Listeners ---
@@ -89,10 +86,9 @@ class ProfilePageActivity : AppCompatActivity() {
         buttonEditProf.setOnClickListener {
             Log.d(TAG, "Edit Profile button clicked")
             val intent = Intent(this, EditProfileActivity::class.java)
-            startActivity(intent) // Start EditProfileActivity
+            startActivity(intent)
         }
 
-        // --- Setup Bottom Navigation ---
         bottomNavigationView.selectedItemId = R.id.profile
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -103,7 +99,6 @@ class ProfilePageActivity : AppCompatActivity() {
                     true
                 }
                 R.id.favorites -> {
-                    // Navigate to FavoritesActivity
                     startActivity(Intent(this, FavoritesActivity::class.java))
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     true
@@ -113,7 +108,6 @@ class ProfilePageActivity : AppCompatActivity() {
         }
     }
 
-    // --- Re-fetch data when returning to the activity ---
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume: Activity resuming, re-fetching profile info.")
@@ -196,7 +190,6 @@ class ProfilePageActivity : AppCompatActivity() {
                         .into(profilePictureImage)
 
                 } else {
-                    // Firestore document doesn't exist
                     Log.w(TAG, "fetchAndDisplayProfileInfo: Firestore user document NOT FOUND for UID: ${currentUser.uid}")
                     profileUsernameText.text = currentUser.displayName ?: "Username not set" // Use Auth name if available, else default
                     profilePictureImage.setImageResource(R.drawable.user) // Set default image explicitly
@@ -240,7 +233,7 @@ class ProfilePageActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             dialog.dismiss()
-            finishAffinity() // Finish this and all parent activities
+            finishAffinity()
         }
 
         buttonCancel.setOnClickListener {

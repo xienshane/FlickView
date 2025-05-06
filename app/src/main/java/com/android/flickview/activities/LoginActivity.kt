@@ -17,26 +17,17 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-// Change Activity to AppCompatActivity for better support and lifecycle management
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    // private lateinit var sharedPreferences: SharedPreferences // Remove if not needed
-
-    // Define a TAG for logging
     private val TAG = "LoginActivity"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login) // Make sure login.xml has email instead of username field now
-
+        setContentView(R.layout.login)
         // Initialize Firebase Auth
         auth = Firebase.auth
-
-        // Remove SharedPreferences initialization if only used for login credentials
-        // sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
-
         val emailEditText = findViewById<EditText>(R.id.email) // CHANGE ID HERE if needed
         val passwordEditText = findViewById<EditText>(R.id.password)
         val loginBtn = findViewById<Button>(R.id.loginButton)
@@ -62,18 +53,14 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     // hideProgressDialog() // Hide progress indicator
                     if (task.isSuccessful) {
-                        // Sign in success
                         Log.d(TAG, "signInWithEmail:success")
                         val user = auth.currentUser
                         //Toast.makeText(this, "Login Successful.", Toast.LENGTH_SHORT).show()
-                        // Navigate to LandingActivity
                         val intent = Intent(this, LandingActivity::class.java)
-                        // Clear back stack so user cannot go back to Login screen
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
                         finish() // Finish LoginActivity
                     } else {
-                        // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithEmail:failure", task.exception)
                         Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}",
                             Toast.LENGTH_LONG).show() // Show specific Firebase error
@@ -90,11 +77,9 @@ class LoginActivity : AppCompatActivity() {
     // --- Check if user is already signed in ---
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
             Log.d(TAG, "User already logged in: ${currentUser.email}")
-            // User is signed in, navigate directly to LandingActivity
             val intent = Intent(this, LandingActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

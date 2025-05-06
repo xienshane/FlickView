@@ -23,15 +23,11 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-// Removed Firebase Storage imports
-
 class EditProfileActivity : AppCompatActivity() {
 
     // Firebase Services
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-
-    // Views
     private lateinit var profileImage: ImageView
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -39,20 +35,12 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var saveChangesButton: MaterialButton
     private lateinit var cancelButton: MaterialButton
     private lateinit var backButton: ImageButton
-
-    // State Variables
-    private var selectedImageUri: Uri? = null // Holds the URI of the image selected by the user
-    private var currentProfileImageUrlFromFirestore: String? = null // Holds the Cloudinary URL loaded from Firestore
-
+    private var selectedImageUri: Uri? = null
+    private var currentProfileImageUrlFromFirestore: String? = null
     private lateinit var imagePickerLauncher: ActivityResultLauncher<String>
-
-    // --- Configuration ---
     private val TAG = "EditProfileActivity" // Tag for Logcat filtering
-    // !!! IMPORTANT: Replace with the name of the unsigned upload preset
-    // you created in your Cloudinary dashboard !!!
     private val CLOUDINARY_UNSIGNED_UPLOAD_PRESET = "flickview_user_profiles" // <--- REPLACE THIS
 
-    // --- Lifecycle Methods ---
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_profile_page)
@@ -62,24 +50,14 @@ class EditProfileActivity : AppCompatActivity() {
         auth = Firebase.auth
         db = Firebase.firestore
         Log.d(TAG, "onCreate: Firebase services initialized.")
-
-        // --- View Binding ---
         bindViews()
         Log.d(TAG, "onCreate: Views bound.")
-
-        // --- Setup Listeners ---
         setupListeners()
         Log.d(TAG, "onCreate: Listeners set up.")
-
-        // --- Initialize Image Picker ---
         setupImagePicker()
         Log.d(TAG, "onCreate: Image picker set up.")
-
-        // --- Load Existing Profile Data ---
-        loadCurrentProfileData() // Logging is inside this function
+        loadCurrentProfileData()
     }
-
-    // --- Initialization and Setup ---
 
     private fun bindViews() {
         backButton = findViewById(R.id.buttonback)
@@ -108,15 +86,14 @@ class EditProfileActivity : AppCompatActivity() {
         imagePickerLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             if (uri != null) {
                 Log.i(TAG, "Image selected via picker. URI: $uri") // Use Info level for successful selection
-                selectedImageUri = uri // Store the selected URI
-                // Load a preview of the selected image directly from the local URI
+                selectedImageUri = uri
                 Glide.with(this)
                     .load(uri)
-                    .placeholder(R.drawable.user) // Placeholder while loading/if error
+                    .placeholder(R.drawable.user)
                     .error(R.drawable.user)
                     .into(profileImage)
             } else {
-                Log.w(TAG, "Image picker returned null URI.") // Use Warn if no image selected
+                Log.w(TAG, "Image picker returned null URI.")
             }
         }
     }
@@ -126,8 +103,6 @@ class EditProfileActivity : AppCompatActivity() {
         // Launches the system's file chooser to select an image
         imagePickerLauncher.launch("image/*")
     }
-
-    // --- Data Loading ---
 
     private fun loadCurrentProfileData() {
         val currentUser = auth.currentUser
@@ -140,7 +115,6 @@ class EditProfileActivity : AppCompatActivity() {
 
         Log.i(TAG, "loadCurrentProfileData: Starting load for UID: ${currentUser.uid}") // Info level for starting load
 
-        // 1. Load username: Prioritize Firebase Auth, fallback to Firestore
         val authUsername = currentUser.displayName
         if (!authUsername.isNullOrBlank()) {
             usernameEditText.setText(authUsername)
@@ -149,7 +123,6 @@ class EditProfileActivity : AppCompatActivity() {
             Log.d(TAG, "loadCurrentProfileData: Username is null/blank in Firebase Auth. Will check Firestore.")
         }
 
-        // 2. Load profile data from Firestore
         Log.d(TAG, "loadCurrentProfileData: Fetching Firestore document: users/${currentUser.uid}")
         db.collection("users").document(currentUser.uid).get()
             .addOnSuccessListener { documentSnapshot ->
@@ -162,42 +135,35 @@ class EditProfileActivity : AppCompatActivity() {
                         Log.d(TAG, "loadCurrentProfileData: Username loaded from Firestore: '$firestoreUsername'")
                     }
 
-                    // Load the profile image URL (Cloudinary URL) from Firestore
                     currentProfileImageUrlFromFirestore = documentSnapshot.getString("profileImageUrl")
                     Log.d(TAG, "loadCurrentProfileData: Loaded profileImageUrl from Firestore: '$currentProfileImageUrlFromFirestore'")
 
-                    // Use Glide to display the image from the Cloudinary URL
                     Glide.with(this@EditProfileActivity)
                         .load(currentProfileImageUrlFromFirestore) // Load Cloudinary URL
                         .placeholder(R.drawable.user)
-                        .error(R.drawable.user) // Show default if URL is null/invalid or loading fails
+                        .error(R.drawable.user)
                         .listener(object : com.bumptech.glide.request.RequestListener<android.graphics.drawable.Drawable> {
                             override fun onLoadFailed(e: com.bumptech.glide.load.engine.GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>?, isFirstResource: Boolean): Boolean {
                                 Log.w(TAG, "loadCurrentProfileData: Glide failed to load image from URL: $currentProfileImageUrlFromFirestore", e)
-                                return false // Let Glide handle error placeholder
+                                return false
                             }
                             override fun onResourceReady(resource: android.graphics.drawable.Drawable?, model: Any?, target: com.bumptech.glide.request.target.Target<android.graphics.drawable.Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
                                 Log.d(TAG, "loadCurrentProfileData: Glide successfully loaded image from URL: $currentProfileImageUrlFromFirestore")
-                                return false // Let Glide handle resource display
+                                return false
                             }
                         })
                         .into(profileImage)
 
                 } else {
-                    // Document doesn't exist in Firestore OR snapshot was null
                     Log.w(TAG, "loadCurrentProfileData: Firestore document for UID ${currentUser.uid} is null or does not exist.")
                     Glide.with(this@EditProfileActivity).load(R.drawable.user).into(profileImage) // Ensure placeholder
                 }
             }.addOnFailureListener { e ->
-                // Error fetching Firestore document
                 Log.e(TAG, "loadCurrentProfileData: Firestore get() FAILED for users/${currentUser.uid}", e) // Error level for failure
                 Toast.makeText(this, "Failed to load profile data.", Toast.LENGTH_SHORT).show()
                 Glide.with(this@EditProfileActivity).load(R.drawable.user).into(profileImage) // Ensure placeholder
             }
     }
-
-
-    // --- Data Saving Logic ---
 
     private fun saveProfileChanges() {
         Log.d(TAG, "saveProfileChanges: Save process initiated.")
@@ -207,21 +173,19 @@ class EditProfileActivity : AppCompatActivity() {
         if (currentUser == null) {
             Log.e(TAG, "saveProfileChanges: Current user is NULL. Aborting save.")
             Toast.makeText(this, "Error: Cannot save, user not found.", Toast.LENGTH_SHORT).show()
-            setEditingEnabled(true) // Re-enable UI if possible
+            setEditingEnabled(true)
             return
         }
         Log.d(TAG, "saveProfileChanges: User confirmed: ${currentUser.uid}")
         Log.d(TAG, "saveProfileChanges: Data to save - Username: '$newUsername', Password set: ${newPassword.isNotEmpty()}, Image URI: $selectedImageUri")
 
 
-        // --- Validation ---
         if (!isProfileDataValid(newUsername, newPassword)) {
             Log.w(TAG, "saveProfileChanges: Validation FAILED.") // Warn for validation failure
             return // Stop if validation fails
         }
         Log.d(TAG, "saveProfileChanges: Validation passed.")
 
-        // Disable UI elements during save operation
         setEditingEnabled(false)
         Toast.makeText(this, "Saving profile...", Toast.LENGTH_SHORT).show() // Indicate activity
 
@@ -262,14 +226,13 @@ class EditProfileActivity : AppCompatActivity() {
             } else { // No Image Change
                 Log.d(TAG, "saveProfileChanges: Image has NOT changed. Checking username/password changes.")
 
-                // Check if we ONLY need to update the password
                 if (!isUsernameActuallyChanged && isPasswordChanged) {
                     Log.d(TAG, "saveProfileChanges: Only password needs updating.")
                     updatePasswordIfNeeded(newPassword) { passwordSuccess ->
                         Log.d(TAG, "saveProfileChanges: updatePasswordIfNeeded (no image/user change) callback received. Success: $passwordSuccess")
                         handleFinalResult(passwordSuccess, if (!passwordSuccess) "Password update failed." else null)
                     }
-                } else if (isUsernameActuallyChanged) { // Username Changed (and maybe password)
+                } else if (isUsernameActuallyChanged) {
                     Log.d(TAG, "saveProfileChanges: Username HAS changed (no image change). Starting username update flow.")
                     // Update Firebase (Auth name + Firestore name). Pass null for image URL.
                     updateAuthAndFirestore(currentUser.uid, newUsername, null) { usernameSuccess ->
@@ -294,13 +257,11 @@ class EditProfileActivity : AppCompatActivity() {
                 } else { // Nothing Changed
                     Log.i(TAG, "saveProfileChanges: No changes detected (Image, Username, Password).") // Info level
                     Toast.makeText(this, "No changes to save.", Toast.LENGTH_SHORT).show()
-                    setEditingEnabled(true) // Re-enable UI
+                    setEditingEnabled(true)
                 }
             }
         }
     }
-
-    // --- Validation & Change Detection ---
 
     private fun isProfileDataValid(username: String, password: String):Boolean {
         if (username.isEmpty()) {
@@ -315,10 +276,9 @@ class EditProfileActivity : AppCompatActivity() {
             passwordEditText.error = "New password must be at least 6 characters"
             return false
         }
-        return true // All checks passed
+        return true
     }
 
-    // Asynchronously checks if the new username differs from the current one (Auth or Firestore)
     private fun checkIfUsernameChanged(userId: String, newUsername: String, callback: (Boolean) -> Unit) {
         Log.d(TAG, "checkIfUsernameChanged: Comparing '$newUsername' for user $userId")
         val currentUser = auth.currentUser ?: return callback(false)
@@ -348,27 +308,23 @@ class EditProfileActivity : AppCompatActivity() {
         }
     }
 
-
-    // --- Cloudinary Upload and Firebase Update ---
-
     private fun uploadImageToCloudinaryAndUpdateFirebase(
         userId: String,
         newUsername: String,
         imageUri: Uri,
-        callback: (Boolean, String?) -> Unit // Returns success status and Cloudinary URL
+        callback: (Boolean, String?) -> Unit
     ) {
         Log.i(TAG, "uploadImageToCloudinaryAndUpdateFirebase: Starting Cloudinary upload. User: $userId, Preset: $CLOUDINARY_UNSIGNED_UPLOAD_PRESET, Uri: $imageUri") // Info for starting upload
         Toast.makeText(this, "Uploading image...", Toast.LENGTH_SHORT).show()
 
         MediaManager.get().upload(imageUri)
-            .unsigned(CLOUDINARY_UNSIGNED_UPLOAD_PRESET) // Crucial: Use unsigned preset
+            .unsigned(CLOUDINARY_UNSIGNED_UPLOAD_PRESET)
             .callback(object : UploadCallback {
                 override fun onStart(requestId: String?) {
                     Log.d(TAG, "Cloudinary Upload ($requestId): onStart")
                 }
 
                 override fun onProgress(requestId: String?, bytes: Long, totalBytes: Long) {
-                    // Log.v(TAG, "Cloudinary Upload ($requestId): onProgress ${bytes * 100 / totalBytes}%") // Verbose logging for progress
                 }
 
                 override fun onSuccess(requestId: String?, resultData: MutableMap<Any?, Any?>?) {
@@ -376,14 +332,12 @@ class EditProfileActivity : AppCompatActivity() {
                     Log.i(TAG, "Cloudinary Upload ($requestId): onSuccess. URL: $cloudinaryUrl") // Info for success
 
                     if (cloudinaryUrl != null) {
-                        // Step 2: Update Firebase Auth (username) and Firestore (username, image URL)
                         Log.d(TAG, "Cloudinary Upload ($requestId): Success. Now calling updateAuthAndFirestore...")
                         updateAuthAndFirestore(userId, newUsername, cloudinaryUrl) { success ->
                             Log.d(TAG, "Cloudinary Upload ($requestId): updateAuthAndFirestore callback received. Success: $success")
                             callback(success, cloudinaryUrl) // Report success/failure of Firebase update
                         }
                     } else {
-                        // This is a critical error if upload succeeds but no URL is returned
                         Log.e(TAG, "Cloudinary Upload ($requestId): onSuccess BUT secure_url is missing or not a String. ResultData: $resultData") // Error level
                         handleSaveFailure("Image upload error (URL missing).")
                         callback(false, null)
@@ -391,30 +345,24 @@ class EditProfileActivity : AppCompatActivity() {
                 }
 
                 override fun onError(requestId: String?, error: ErrorInfo?) {
-                    // Log the detailed error from Cloudinary
                     Log.e(TAG, "Cloudinary Upload ($requestId): onError. Code: ${error?.code}, Description: ${error?.description}") // Error level
                     handleSaveFailure("Image upload failed: ${error?.description}")
                     callback(false, null)
                 }
 
                 override fun onReschedule(requestId: String?, error: ErrorInfo?) {
-                    // Treat as error for simplicity, log the details
                     Log.w(TAG, "Cloudinary Upload ($requestId): onReschedule. Code: ${error?.code}, Description: ${error?.description}") // Warn level
                     handleSaveFailure("Image upload error (rescheduled): ${error?.description}")
                     callback(false, null)
                 }
-            }).dispatch() // Important: Starts the upload process
+            }).dispatch()
     }
 
-
-    // --- Firebase Update Functions ---
-
-    // Updates Firebase Auth (DisplayName) and Firestore (username, profileImageUrl)
     private fun updateAuthAndFirestore(
         userId: String,
         newUsername: String,
-        cloudinaryPhotoUrl: String?, // Null if only username is changing
-        callback: (Boolean) -> Unit // Reports overall success of both updates
+        cloudinaryPhotoUrl: String?,
+        callback: (Boolean) -> Unit
     ) {
         Log.i(TAG, "updateAuthAndFirestore: Starting update. User: $userId, Name: '$newUsername', URL: '$cloudinaryPhotoUrl'") // Info level
         val user = auth.currentUser
@@ -423,12 +371,10 @@ class EditProfileActivity : AppCompatActivity() {
             return callback(false)
         }
 
-        // --- 1. Update Firebase Auth Profile (Display Name ONLY) ---
         Log.d(TAG, "updateAuthAndFirestore: Attempting Auth profile update...")
         val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(newUsername).build()
         val authTask = user.updateProfile(profileUpdates)
 
-        // --- 2. Prepare Firestore Update Data ---
         val firestoreUpdateData = mutableMapOf<String, Any>("username" to newUsername)
         if (cloudinaryPhotoUrl != null) {
             firestoreUpdateData["profileImageUrl"] = cloudinaryPhotoUrl
@@ -444,7 +390,6 @@ class EditProfileActivity : AppCompatActivity() {
         var firestoreComplete = false
 
         fun checkCompletion() {
-            // This ensures the callback is only called once when BOTH tasks are finished
             if (authComplete && firestoreComplete) {
                 val overallSuccess = authSuccess && firestoreSuccess
                 Log.i(TAG, "updateAuthAndFirestore: Both tasks complete. AuthSuccess: $authSuccess, FirestoreSuccess: $firestoreSuccess, Overall: $overallSuccess") // Info level
@@ -477,23 +422,21 @@ class EditProfileActivity : AppCompatActivity() {
         }
     }
 
-    // Updates only the Firebase Auth password
     private fun updatePasswordIfNeeded(newPass: String, callback: (Boolean) -> Unit) {
         if (newPass.isBlank()) {
             Log.d(TAG, "updatePasswordIfNeeded: Password is blank, skipping update.")
-            callback(true) // Nothing to do, report success
+            callback(true)
             return
         }
 
-        Log.i(TAG, "updatePasswordIfNeeded: Attempting password update.") // Info level
+        Log.i(TAG, "updatePasswordIfNeeded: Attempting password update.")
         auth.currentUser?.updatePassword(newPass)?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Log.i(TAG,"updatePasswordIfNeeded: Password update SUCCEEDED.") // Info level
+                Log.i(TAG,"updatePasswordIfNeeded: Password update SUCCEEDED.")
                 passwordEditText.text = null
                 Toast.makeText(this, "Password updated", Toast.LENGTH_SHORT).show()
                 callback(true)
             } else {
-                // Log the specific Firebase Auth exception
                 Log.e(TAG, "updatePasswordIfNeeded: Password update FAILED.", task.exception) // Error level
                 val message = task.exception?.message ?: "Unknown error"
                 val toastMessage = if (message.contains("RECENT_LOGIN_REQUIRED", ignoreCase = true)) {
@@ -504,21 +447,18 @@ class EditProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show()
                 callback(false)
             }
-        } ?: run { // Handle case where currentUser is somehow null
+        } ?: run {
             Log.e(TAG, "updatePasswordIfNeeded: Cannot update password, currentUser is null.")
             callback(false)
         }
     }
 
-
-    // --- UI Helper Functions ---
-
     private fun handleFinalResult(success: Boolean, failureMessage: String?) {
         Log.d(TAG, "handleFinalResult: Success: $success, Message: '$failureMessage'")
-        setEditingEnabled(true) // Re-enable buttons etc.
+        setEditingEnabled(true)
         if (success) {
             Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
-            setResult(Activity.RESULT_OK) // Signal success to calling activity if needed
+            setResult(Activity.RESULT_OK)
             finish() // Close the edit activity
         } else {
             Toast.makeText(this, failureMessage ?: "Profile update failed.", Toast.LENGTH_LONG).show()
@@ -526,8 +466,8 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     private fun handleSaveFailure(message: String) {
-        Log.w(TAG, "handleSaveFailure: $message") // Warn level for intermediate failures
-        setEditingEnabled(true) // Re-enable UI on failure
+        Log.w(TAG, "handleSaveFailure: $message")
+        setEditingEnabled(true)
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 

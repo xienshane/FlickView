@@ -20,15 +20,13 @@ import com.google.firebase.ktx.Firebase
 class LogoutDialogFragment : DialogFragment() {
 
     private var cardView: CardView? = null
-    private lateinit var auth: FirebaseAuth // Declare Firebase Auth instance
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Initialize Firebase Auth
         auth = Firebase.auth
-        // Inflate your custom logout layout
         return inflater.inflate(R.layout.logout_page, container, false)
     }
 
@@ -36,21 +34,18 @@ class LogoutDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Reference the UI elements with correct IDs
         val textMessage: TextView = view.findViewById(R.id.logout_message)
         val cancelButton: MaterialButton = view.findViewById(R.id.button_cancel_logout) // Corrected ID
         val logoutButton: MaterialButton = view.findViewById(R.id.button_logout2)
 
         cardView = view.findViewById(R.id.logout)
-        // Set the text message in the dialog
         textMessage.text = "Are you sure you want to log out?"
 
         // Handle Cancel Button Click
         cancelButton.setOnClickListener {
-            dismiss() // Close the dialog
+            dismiss()
         }
 
-        // Handle Logout Button Click
         logoutButton.setOnClickListener {
             // 1. SIGN OUT FROM FIREBASE
             auth.signOut()
@@ -66,8 +61,6 @@ class LogoutDialogFragment : DialogFragment() {
 
             // 4. Dismiss the dialog
             dismiss()
-
-            // 5. Optional but recommended: Finish the activity hosting the dialog (e.g., LandingActivity)
             activity?.finish()
         }
     }
@@ -75,8 +68,6 @@ class LogoutDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-
-        // Customize dialog appearance (optional)
         dialog?.window?.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
