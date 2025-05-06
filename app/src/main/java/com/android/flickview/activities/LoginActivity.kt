@@ -46,11 +46,9 @@ class LoginActivity : AppCompatActivity() {
         registerBtn.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
-            // Optional: finish() if you don't want users to return here via back button
         }
 
         loginBtn.setOnClickListener {
-            // Use email instead of username
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString()
 
@@ -60,9 +58,6 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener // Stop execution here
             }
 
-            // Add a simple progress indicator (optional but recommended)
-            // showProgressDialog() // You would need to implement this
-
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     // hideProgressDialog() // Hide progress indicator
@@ -70,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
                         // Sign in success
                         Log.d(TAG, "signInWithEmail:success")
                         val user = auth.currentUser
-                        Toast.makeText(this, "Login Successful.", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this, "Login Successful.", Toast.LENGTH_SHORT).show()
                         // Navigate to LandingActivity
                         val intent = Intent(this, LandingActivity::class.java)
                         // Clear back stack so user cannot go back to Login screen
@@ -103,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, LandingActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            finish() // Prevent going back to Login
+            finish()
         } else {
             Log.d(TAG, "No user logged in.")
         }

@@ -48,7 +48,7 @@ class DiscoverActivity : Activity() {
         registerBtn.setOnClickListener{
             Log.e("Sample Project", "Button is clicked!")
 
-            Toast.makeText(this, "Button is clicked.", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "Button is clicked.", Toast.LENGTH_LONG).show()
 
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
