@@ -58,7 +58,7 @@ dependencies {
     implementation(libs.mpandroidchart)
 
 
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0")) // <-- UPDATE THIS
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation ("com.google.firebase:firebase-auth-ktx")
 //    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
@@ -67,7 +67,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.11.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
-    implementation("com.cloudinary:cloudinary-android:2.+") // Use the latest version
+    implementation("com.cloudinary:cloudinary-android:2.+") // Latest version
     implementation("com.cloudinary:cloudinary-core:1.+")    // Core library is also often needed
 
 

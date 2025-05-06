@@ -62,7 +62,7 @@
                 android:id="@+id/copyright_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="© 2025 FlickView\n\nAll rights reserved.\n\nUnauthorized duplication, redistribution, or modification of this application or its contents without explicit permission is prohibited.\n\nAll movie titles, posters, and metadata are property of their respective copyright holders.\n\nFor inquiries or support, please contact: support@cinescope.app"
+                android:text="© 2025 FlickView\n\nAll rights reserved.\n\nUnauthorized duplication, redistribution, or modification of this application or its contents without explicit permission is prohibited.\n\nAll movie titles, posters, and metadata are property of their respective copyright holders.\n\nFor inquiries or support, please contact: support@flickview.app"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif"

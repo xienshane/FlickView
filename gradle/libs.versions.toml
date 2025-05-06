@@ -44,4 +44,3 @@ mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-

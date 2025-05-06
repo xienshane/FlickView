@@ -267,7 +267,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="16dp"
-                android:background="@drawable/dev_shape2">
+                android:background="@drawable/cat_background">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -351,7 +351,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="16dp"
-                android:background="@drawable/dev_shape2">
+                android:background="@drawable/cat_background">
 
                 <ImageView
                     android:layout_width="40dp"
