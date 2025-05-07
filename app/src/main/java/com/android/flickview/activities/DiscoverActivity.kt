@@ -58,8 +58,6 @@ class DiscoverActivity : Activity() {
             try {
                 val config = mapOf(
                     "cloud_name" to CLOUDINARY_CLOUD_NAME
-                    // "api_key" to "YOUR_API_KEY", // Not needed for basic init/unsigned
-                    // "api_secret" to "YOUR_API_SECRET" // NEVER PUT SECRET HERE
                 )
                 MediaManager.init(this, config)
                 Log.i("MyApplication", "Cloudinary initialized with cloud name: $CLOUDINARY_CLOUD_NAME")
